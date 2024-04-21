@@ -1,0 +1,7 @@
+/* El HOST es como el DIV que envuelve nuestro componente footer */
+:host{
+    display: block;
+    background-color: blueviolet;
+    /* de la grilla definida en el styles.css defino SU AREA */
+    grid-area: footer;
+}

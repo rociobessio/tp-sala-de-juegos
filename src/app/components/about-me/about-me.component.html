@@ -1,0 +1,49 @@
+<main>
+    <div class="about-me container">
+        <div class="about-content">
+            <!-- Comienza Seccion imagen -->
+            <section class="image-section">
+                <img src="assets/rocio-pixel-1.png" alt="perfil">
+
+                <!-- Comienza Seccion Botones -->
+                <div class="about-btns">
+                    <button type="button" class="btn btn-green" (click)="mostrarDiv('sobre-mi')">Datos Personales</button>
+                    <button type="button" class="btn btn-white" (click)="mostrarDiv('sobre-juego')">Sobre Mi Juego</button>
+                </div>
+                <!-- Termina Seccion Botones -->
+            </section>
+            <!-- Termina Seccion Imagen -->
+
+            <!-- Comienza Informacion Personal -->
+            <section class="info-section personal" *ngIf="div === 'sobre-mi'">
+                <h1>¿Quien soy?</h1>
+                <h2>Estudiante en Programación</h2>
+                <p>Nombre: Rocio</p>
+                <p>Apellido: Bessio</p>
+                <p>Email: rocibessio&#64;gmail.com</p>
+                <p>División: A341</p>
+                <p>Materia: Laboratorio IV</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ullam odio impedit architecto delectus sit recusandae ratione quidem animi natus, totam laudantium, autem perspiciatis fugit a vel expedita sint illo!
+                Qui sequi, dignissimos consectetur vitae eaque at ad magnam amet ev  repellendus ipsam in veritatis libero commodi quasi omnis facilis. Consequuntur aut, adipisci impedit velit quod similique dolorum nostrum doloremque fugit laborum.
+                Molestiae aliquam libero, praesentium hic ea perspiciatis. Sequi esse, quis ipsam quidem doloremque deserunt expedita tempora beatae accusamus perspiciatis mollitia quas pariatur quo similique impedit fugit natus architecto numquam libero?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ullam odio impedit architecto delectus sit recusandae ratione quidem animi natus, totam laudantium, autem perspiciatis fugit a vel expedita sint illo!
+                    Qui sequi, dignissimos consectetur vitae eaque at ad magnam amet ev  repellendus ipsam in veritatis libero commodi quasi omnis facilis. Consequuntur aut, adipisci impedit velit quod similique dolorum nostrum doloremque fugit laborum.
+                    Molestiae aliquam libero, praesentium hic ea perspiciatis. Sequi esse, quis ipsam quidem doloremque deserunt expedita tempora beatae accusamus perspiciatis mollitia quas pariatur quo similique impedit fugit natus architecto numquam libero?</p>
+                <!-- Termina Informacion Personal -->
+
+                
+            
+            </section>
+            <!-- Termina Informacion Personal -->
+            
+            <!-- Comienza la seccion de la informacion de mi juego -->
+            <!-- Comienza la Explicacion del Juego -->
+            <section class="info-section juego" *ngIf="div === 'sobre-juego'">
+                <h1>Información De Mi Juego</h1>
+                <h2>Sudoku/¿Quien es Quien?/Simon dice</h2>
+                <p>aaaaa Informacion</p>
+            </section>
+            <!-- Termina la Explicacion del Juego -->
+        </div>
+    </div>
+</main>

@@ -1,0 +1,165 @@
+.about-me{
+    width: 100%;
+    padding: 50px 8%;
+}
+
+.about-me .about-content{
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-gap: 70px;
+    min-height: 100vh;
+}
+
+
+/* Comienza Seccion Imagen */
+.about-content .image-section{
+    position: relative;
+    min-width: 300px;
+    height: 380px;
+}
+
+.image-section img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+/* Esta es el cuadrante de la imagen, podria poner otra cosa */
+.about-content .image-section::after{
+    position:absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    outline: 3px solid #787cb5;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+}
+/* Termina seccion imagen */
+
+/* Comienza la Seccion de Informacion */
+.info-section h1{
+    color: azure;
+    font-size: 30px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.info-section h1::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 110%;
+    left: 0; 
+}
+
+.info-section.personal h1::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 3px;
+    top: calc(110% - 1px);
+    left: 0px;
+    background-color: thistle;
+}
+
+.info-section.personal  h2{
+    font-family: Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    color: #787cb5;
+    padding: 14px 0px 15px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.info-section p{
+    color: #aaabb0;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: justify;
+    padding-bottom: 8px;
+}
+
+/* Seccion de Juego */
+.info-section.juego h1 {
+    color: antiquewhite;
+    font-size:  30px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.info-section.juego h1::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 110%;
+    left: 0; 
+}
+
+.info-section.juego h1::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 3px;
+    top: calc(110% - 1px);
+    left: 0px;
+    background-color: thistle ;
+}
+
+.info-section.juego h2 {
+    font-family: Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    color: #787cb5;
+    padding: 14px 0px 15px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.info-section.juego p {
+    color: #aaabb0;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: justify;
+    padding-bottom: 8px;
+}
+/* Termina seccion juego */
+
+/* Termina la seccion de Informacion */
+
+/* Inicio Seccion Botones */
+.about-btns button {
+    min-width: 150px;
+    padding: 8px 18px;
+    border: 1px solid #787cb5;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #aaabb0;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin-top: 30px;
+    /* Margen a la derecha del boton */
+    margin-right: 10px;
+}
+
+.about-btns button:last-child {
+    margin-right: 0; /* Quitao el margen derecho del último botón */
+    margin-left: 10px; /* Agrego un margen a la izquierda del segundo botón */
+}
+
+.image-section button:hover {
+    color: #787cb5;
+    border-color: #aaabb0;
+}
+/* Termina Seccion Botones */
+

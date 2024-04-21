@@ -1,0 +1,21 @@
+:host {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    grid-template-rows: auto 1fr auto; /* Ajusta las filas para que el header y el footer tengan su altura natural */
+    /* grid-template-columns: var(--sidebar-width) 1fr; */
+    /* transition: grid-template-columns 0.5s; */
+}
+
+.content {
+    display: block;
+    background-image: url('../assets/neon-layaout.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    grid-area: content;
+    overflow-y: auto;
+}

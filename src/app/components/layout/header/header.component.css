@@ -1,0 +1,9 @@
+/* El HOST es como el DIV que envuelve nuestro componente header*/
+:host{
+    display: block;
+    background-color: rgb(61, 0, 108);
+    /* de la grilla definida en el styles.css defino SU AREA */
+    grid-area: header;
+}
+  
+  
