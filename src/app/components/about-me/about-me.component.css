@@ -7,11 +7,11 @@
 .about-content .image-section {
     position: relative;
     min-width: 300px;
-    height: 380px;
+    height: 340px;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
 }
+
 
 .image-section img {
     width: 100%;
@@ -35,7 +35,7 @@
 .image-section {
     position: relative;
     width: 100%; /* Ajusta el ancho según sea necesario */
-    height: 100%; /* Ajusta la altura según sea necesario */
+    height: 90%; /* Ajusta la altura según sea necesario */
 }
 
 .image-section img {
@@ -101,7 +101,7 @@
     font-size: 18px;
     line-height: 1.2;
     text-align: justify;
-    padding-bottom: 8px;
+    padding-bottom: 2px;
 }
 
 .info-section.juego h1 {
@@ -186,6 +186,18 @@
 }
 /* Termina la seccion de botones */
 
+/* Comienza el player 1 */
+.sec-player {
+    text-align: center; 
+}
+
+.sec-player h3 {
+    color: beige;
+    padding-top: 0; /* Elimina el margen superior */
+}
+/* Finaliza el player */
+
+
 /* Comienza el control de GRID */
 .about-me .about-content {
     display: grid;
@@ -209,6 +221,9 @@
     grid-area: btnsSec;
 }
 /* Termina el control de GRID */
+
+
+
 
 /* Comienza lo responsive */
 @media(max-width:1068px) {
