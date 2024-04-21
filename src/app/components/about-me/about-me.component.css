@@ -1,24 +1,19 @@
-.about-me{
+.about-me {
     width: 100%;
     padding: 50px 8%;
 }
 
-.about-me .about-content{
-    display: grid;
-    grid-template-columns: 2fr 5fr;
-    grid-gap: 70px;
-    min-height: 100vh;
-}
-
-
-/* Comienza Seccion Imagen */
-.about-content .image-section{
+/* Comienza seccion imagen */
+.about-content .image-section {
     position: relative;
     min-width: 300px;
     height: 380px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.image-section img{
+.image-section img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -26,9 +21,8 @@
     z-index: 2;
 }
 
-/* Esta es el cuadrante de la imagen, podria poner otra cosa */
-.about-content .image-section::after{
-    position:absolute;
+.about-content .image-section::after {
+    position: absolute;
     content: '';
     width: 100%;
     height: 100%;
@@ -37,10 +31,34 @@
     left: 15px;
     z-index: 1;
 }
+
+.image-section {
+    position: relative;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    height: 100%; /* Ajusta la altura según sea necesario */
+}
+
+.image-section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out; /* Agrega una transición suave */
+}
+
+.img-back {
+    opacity: 0; /* Inicialmente oculta la imagen de fondo */
+}
+
+.image-section:hover .img-back {
+    opacity: 1; /* Muestra la imagen de fondo al hacer hover sobre la sección */
+}
 /* Termina seccion imagen */
 
-/* Comienza la Seccion de Informacion */
-.info-section h1{
+/* Comienza seccion informacion */
+.info-section h1 {
     color: azure;
     font-size: 30px;
     text-transform: uppercase;
@@ -49,13 +67,13 @@
     position: relative;
 }
 
-.info-section h1::before{
+.info-section h1::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 1px;
     top: 110%;
-    left: 0; 
+    left: 0;
 }
 
 .info-section.personal h1::after {
@@ -68,7 +86,7 @@
     background-color: thistle;
 }
 
-.info-section.personal  h2{
+.info-section.personal h2 {
     font-family: Helvetica;
     font-size: 20px;
     font-weight: 600;
@@ -78,7 +96,7 @@
     letter-spacing: 1px;
 }
 
-.info-section p{
+.info-section p {
     color: #aaabb0;
     font-size: 18px;
     line-height: 1.2;
@@ -86,10 +104,9 @@
     padding-bottom: 8px;
 }
 
-/* Seccion de Juego */
 .info-section.juego h1 {
     color: antiquewhite;
-    font-size:  30px;
+    font-size: 30px;
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 5px;
@@ -102,7 +119,7 @@
     width: 100%;
     height: 1px;
     top: 110%;
-    left: 0; 
+    left: 0;
 }
 
 .info-section.juego h1::after {
@@ -112,7 +129,7 @@
     height: 3px;
     top: calc(110% - 1px);
     left: 0px;
-    background-color: thistle ;
+    background-color: thistle;
 }
 
 .info-section.juego h2 {
@@ -132,11 +149,20 @@
     text-align: justify;
     padding-bottom: 8px;
 }
-/* Termina seccion juego */
+/* Termina la seccion de informacion */
 
-/* Termina la seccion de Informacion */
+/* Comienza la informacion de botones */
+.about-btns {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
 
-/* Inicio Seccion Botones */
+.btn-section {
+    margin-top: 20px; /* Ajustar el margen superior para separar los botones de la información */
+}
+
+
 .about-btns button {
     min-width: 150px;
     padding: 8px 18px;
@@ -147,19 +173,84 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.4s;
-    margin-top: 30px;
-    /* Margen a la derecha del boton */
     margin-right: 10px;
 }
 
 .about-btns button:last-child {
-    margin-right: 0; /* Quitao el margen derecho del último botón */
-    margin-left: 10px; /* Agrego un margen a la izquierda del segundo botón */
+    margin-right: 0;
 }
 
 .image-section button:hover {
     color: #787cb5;
     border-color: #aaabb0;
 }
-/* Termina Seccion Botones */
+/* Termina la seccion de botones */
 
+/* Comienza el control de GRID */
+.about-me .about-content {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-areas: 
+    'imageSec infoSec'
+    'btnsSec btnsSec';
+    grid-gap: 70px;
+    min-height: 100vh;
+}
+
+.about-me .about-content .image-section {
+    grid-area: imageSec;
+}
+
+.about-me .about-content .info-section {
+    grid-area: infoSec;
+}
+
+.about-me .about-content .about-btns {
+    grid-area: btnsSec;
+}
+/* Termina el control de GRID */
+
+/* Comienza lo responsive */
+@media(max-width:1068px) {
+    .about-me .about-content {
+        grid-template-columns: 2fr 5fr;
+        grid-template-areas: 
+        'imageSec btnsSec'
+        'infoSec infoSec';
+    }
+
+    .about-btns {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+}
+
+@media(max-width:500px) {
+    .about-me .about-content {
+        grid-template-columns: 2fr 5fr;
+        grid-template-areas: 
+        'imageSec imageSec'
+        'btnsSec btnsSec'
+        'infoSec infoSec';
+    }
+
+    .about-btns {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+}
+
+@media(max-width:320px) {
+    .about-me .about-content {
+        grid-template-columns: 2fr 5fr;
+        grid-template-areas: 
+        'imageSec imageSec'
+        'btnsSec btnsSec'
+        'infoSec infoSec';
+    }
+
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+}
+/* Termina lo responsive */ 
