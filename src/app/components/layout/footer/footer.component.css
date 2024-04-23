@@ -5,3 +5,115 @@
     /* de la grilla definida en el styles.css defino SU AREA */
     grid-area: footer;
 }
+
+footer{
+    position: relative;
+    width: 100%;
+    background-color: rgb(61, 0, 108);
+    /* Tamaño del footer */
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* INICIO DE SECCION SOCIAL-ICONS */
+footer .social-icons{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+footer .social-icons li{
+    list-style: none;
+    margin-left: 26px;
+}
+
+footer .social-icons li a{
+    font-size: 2em;
+    color: azure;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+/* Animacion para que los iconos suban */
+footer .social-icons li a:hover{
+    transform: translateY(-10px);
+}
+/* FINAL DE SECCION SOCIAL-ICONS */
+
+/* Modificacion del p en el footer */
+footer p{
+    font-size: 1em;
+    color: azure;
+}
+/* Fin */
+
+/* COMIENZO DE LA ANIMACION DE LAS OLAS */
+footer .wave{
+    position: absolute;
+    /* Conn este top subo la franja */
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('../../../../assets/img-wave.png'); 
+    background-size: 1000px 100px;
+}
+
+footer .wave#wave1{
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animeteWave 4s linear infinite;
+}
+
+footer .wave#wave2{
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animeteWave-2 4s linear infinite;
+}
+
+footer .wave#wave3{
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animeteWave 3s linear infinite;
+}
+
+footer .wave#wave4{
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animeteWave-2 3s linear infinite;
+}
+/* Para animar las olas */
+@keyframes animeteWave{
+    0%{
+        background-position-x: 1000px ;
+    }
+    100%{
+        background-position-x: 0 ;
+    }
+}
+
+@keyframes animeteWave-2{
+    0%{
+        background-position-x: 0 ;
+    }
+    100%{
+        background-position-x: 1000px ;
+    }
+}
+/* FIN DE LA ANIMACION DE LAS OLAS */
+
+/* INICIO DE @MEDIA */ 
+/* FIN DE @MEDIA */

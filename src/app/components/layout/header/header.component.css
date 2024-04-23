@@ -6,4 +6,88 @@
     grid-area: header;
 }
   
-  
+header{
+    padding: 15px;
+}
+
+/* INICIO DE LA MODIFICACION DEL LOGO */
+.img-logo{
+    width: 60px;
+}
+
+.img-logo:hover{
+    cursor: pointer;
+}
+/* FIN DE LA MODIFICACION DEL LOGO */
+
+/* INICIO DE LAS OPCIONES DEL MENU */
+.desktop-menu{
+    margin-top: 24px;
+    z-index: 999; /* Asegurar que el menú esté por encima del contenido */
+    max-height: calc(100vh - 100px); /* Altura máxima del menú (ajustar según necesites) */
+    overflow-y: auto; /* Hacer que el menú sea desplazable verticalmente si es necesario */
+}
+
+.desktop-menu ul{
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-menu ul li{
+    list-style-type: none;
+    color: white;
+    display: inline-block; /*Para que las opciones del menu esten en linea*/
+    font-size: 20px;
+    margin-left: 26px; /* Espacio entre palabras*/
+}
+
+.desktop-menu ul li:last-child {
+    margin-bottom: 10px; /* Agregar margen inferior al último ítem */
+}
+
+/* Para que al pararme sobre las op del header  se cambie su color y tamaño */
+.desktop-menu ul li:hover{
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+    color: indianred;
+    transition: 0.4s ease-in-out;
+}
+/* FIN DE LAS OPCIONES DEL MENU */
+
+/* INICIO DE ICONO DE MENU */
+.menu-icon{
+    display: none;    
+}
+/* FIN DE ICONO DE MENU */
+
+/* INICIO DE AJUSTES PARA QUE SEA RESPONSIVE */
+@media screen and (min-width:768px) and (max-width:900px){
+    .desktop-menu{
+        position: fixed;
+        transition: 0.4s ease-in-out;
+        right: -280px;
+        top: 64px;
+        background-color: rgb(61, 0, 108);
+        width: 180px;
+        height: 100%;
+    }
+    .desktop-menu ul li{
+        display: block;
+        text-align: left;
+        margin: 0;
+        padding: 10px 0 10px 26px;
+        border-bottom: 1px solid cornflowerblue;
+    }
+    .menu-icon{
+        display: block;
+        color: white;
+        font-size: 40px;
+        padding-top: 10px;
+    }
+    .mobile-menu{
+        right: 0;
+        transition: 0.4s ease-in-out;
+    }
+}
+/* FIN DE AJUSTES PARA QUE SEA RESPONSIVE */
