@@ -15,7 +15,8 @@ import { Component } from '@angular/core';
  * a motrar (personal/juego)
  */
 export class AboutMeComponent {
-  div: 'sobre-mi' | 'sobre-juego' = 'sobre-mi';//--> Para mostrar o no el contenido de la division(0 no mostrara nada)
+  //--> Para mostrar o no el contenido de la division (por default 'sobre mi')
+  div: 'sobre-mi' | 'sobre-juego' = 'sobre-mi';
 
   /**
    * Me permitira mostrar un div u otro dependiendo
@@ -23,7 +24,7 @@ export class AboutMeComponent {
    * @param numeroDiv numero por el cual sabre
    * que div mostrar
    */
-  mostrarDiv(stringDiv: 'sobre-mi' | 'sobre-juego') { // Ajustar el tipo de stringDiv
+  mostrarDiv(stringDiv: 'sobre-mi' | 'sobre-juego') {
     this.div = stringDiv;
   }
 }
