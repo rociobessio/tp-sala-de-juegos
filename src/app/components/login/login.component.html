@@ -1,7 +1,7 @@
 <!-- <p>login works!</p> -->
 <main>
     <!-- COMIENZO DEL LOGIN --> 
-    <div class="wrapper-login">
+    <div class="wrapper-login"  [class.active]="active">
         
         <!-- INICIO DE LA FORMA CURVADA -->
         <div class="curved-shape"></div>
@@ -9,28 +9,34 @@
         <!-- FIN DE LA FORMA CURVADA -->
 
         <div class="form-box login">
-            <h2 class="animation">Log-In</h2>
+            <h2 class="animation" style="--i:0;">Log-In</h2>
             <form action="#">
                 <!-- Para el username -->
-                <div class="input-box animation">
+                <div class="input-box animation"
+                style="--i:1;">
                     <input type="text" required>
                     <label for="usuario">Username:</label>
                     <!-- iconito -->
                 </div>
                 <!-- Para la passwoerd -->
-                <div class="input-box animation">
+                <div class="input-box animation" 
+                style="--i:2;">
                     <input type="text" required>
                     <label for="password">Password:</label>
                     <!-- iconito -->
                 </div>
-                <div class="input-box animation">
+                <div class="input-box animation"
+                style="--i:3;">
                     <button type="submit" class="btn">Log-In</button>
+                    <button type="submit" class="btn">Fast Login</button>
                 </div>
                 <!-- FIN DEL LOGIN --> 
-                
+                <br>
                 <!-- INICIO DEL LINK REGISTRARSE -->
-                <div class="registrate-link animation">
-                    <p>No tenes una cuenta? Registrate <a href="#" class="sign-up">Sign-Up</a></p>
+                <div class="registrate-link animation"
+                style="--i:4;">
+                    <p>No tenes una cuenta? Registrate <a href="" class="sign-up" (click)="toggleActive($event)">Sign-Up</a>
+                    </p>
                 </div>
                 <!-- FIN DEL LINK REGISTRARSE -->
             </form>
@@ -40,41 +46,47 @@
         <!-- COMIENZO DEL DIV DE INTOMACION -->
         <div class="div-informacion login">
             <!-- Puede ser algo medio pixel art -->
-            <h2>BIENVENIDO De Nuevo</h2>
-            <p>Ya tenes una cuenta?<br>Que esperas, entra y juga! </p>
+            <h2 class="animation" style="--i:0; --j:20;">BIENVENIDO De Nuevo</h2>
+            <p class="animation" style="--i:1; --j:21;">Ya tenes una cuenta?<br>Que esperas, entra y juga! </p>
         </div>
         <!-- FIN DEL DIV DE INFORMACION -->
 
         <!-- INICIO DEL REGISTER -->
         <div class="form-box register">
-            <h2>Sign-Up</h2>
+            <h2 class="animation" style="--i:17; --j:0;">Sign-Up</h2>
             <form action="#">
                 <!-- Para el username -->
-                <div class="input-box">
+                <div class="input-box animation"
+                style="--i:18; --j:1;">
                     <input type="text" required>
                     <label for="usuario">Username:</label>
                     <!-- iconito -->
                 </div>
                 <!--  Para el email -->
-                <div class="input-box">
+                <div class="input-box animation"
+                style="--i:19; --j:2;">
                     <input type="email" required>
                     <label for="email">Email:</label>
                     <!-- iconito -->
                 </div>
                 <!-- Para la passwoerd -->
-                <div class="input-box">
+                <div class="input-box animation"
+                style="--i:20; --j:3;">
                     <input type="text" required>
                     <label for="password">Password:</label>
                     <!-- iconito -->
                 </div>
-                <div class="input-box">
+                <div class="input-box animation"
+                style="--i:21; --j:4;">
                     <button type="submit" class="btn">Sign-Up</button>
                 </div>
                 <!-- FIN DEL LOGIN --> 
                 
                 <!-- INICIO DEL LINK LOGIN -->
-                <div class="registrate-link">
-                    <p>Ya estas registrado? <a href="" class="login-link">Log-In</a></p>
+                <div class="registrate-link animation"
+                style="--i:22; --j:5;">
+                    <p>Ya estas registrado? <a href="" class="login-link"
+                        (click)="toggleDesactivate($event)">Log-In</a></p>
                 </div>
                 <!-- FIN DEL LINK LOGIN -->
             </form>
@@ -84,8 +96,8 @@
         <!-- COMIENZO DEL DIV DE INTOMACION -->
         <div class="div-informacion register">
             <!-- Puede ser algo medio pixel art -->
-            <h2>BIENVENIDO</h2>
-            <p>Todavia no tenes una cuenta?<br>Que esperas, registrate y juga!</p>
+            <h2 class="animation" style="--i:17; --j:0;">BIENVENIDO</h2>
+            <p class="animation" style="--i:18; --j:1;">Todavia no tenes una cuenta?<br>Que esperas, registrate y juga!</p>
         </div>
         <!-- FIN DEL DIV DE INFORMACION -->
     </div>
