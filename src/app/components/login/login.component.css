@@ -1,126 +1,231 @@
-.login {
-    width: 100%;
-    height: 100vh; /*que ocupe la altura de la pantalla */
+main{
     display: flex;
     justify-content: center;
-    align-items: center; 
-    /* Cambiarle la font */
-    font-family: 'Jost', sans-serif;
+    align-items: center;
+    min-height: 100vh;
+
+    /* Luego de aca cambiar las font y color */
+    color: white;
+    font-family: 'Poppins',sans-serif;
 }
 
-/* INICIO DEL DIV QUE CONTIENE TODO */
-.principal {
-    width: 350px;
-    height: 500px;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-    /* Podria poner imagen como background */
-    background-image: url('../../../assets/arcade-planets.jpg');
+/* INICIO DEL WRAPPER DEL LOGIN */
+.wrapper-login{
+    position: relative;
+    width: 900px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid #b4acf5;
 
+    /* Para ocultar la curved shape */
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 5px 20px 50px #000;
-    /* Centro el login */
+}
+/* FIN DEL WRAPPER DEL LOGIN */
+
+/* INICIO DEL LOGIN */
+.wrapper-login .form-box{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
-/* FIN DEL DIV QUE CONTIENE TODO */
+.wrapper-login .form-box.login{
+    left: 0;
+    padding: 0 40px 0 60px;
+    /* display: none; */
+}
 
-/* INICIO DEL CHECK-BOX */
-#chk{
-    /* lo oculto */
+.wrapper-login .form-box.login .animation{
+    transform: translateX(0);
+    transition: .7s ease;
+}
+
+/* para cuando desde el ts se ponga 'active' */
+.wrapper-login.active .form-box.login .animation{
+    transform: translateX(-120%);
+}
+
+.wrapper-login .form-box.register{
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Oculto el register */
     display: none;
 }
-/* FIN DEL CHECK-BOX */
 
-/* INICIO DEL ESTILO DEL SIGN-UP */
-.sign-up{
+.form-box h2{
+    font-size: 32px;
+    color: white;
+    text-align: center;
+}
+
+.form-box .input-box{
     position: relative;
     width: 100%;
+    height: 50px;
+    margin: 25px 0;
+}
+
+.input-box input{
+    width: 100%;
     height: 100%;
-}
-
-/* FIN DEL ESTILO DEL SIGN-UP */
-
-/* INICOI DE ESTILOS PARA LOG-IN */
-.div-login{
-    height: 460px;
-    background: #eee;
-    border-radius: 60% / 10%;
-    transform: translateY(-180px) ;
-    transition: .8s ease-in-out;
-}
-
-.div-login label{
-    color: #573b8a;
-    transform: scale(.6);
-}
-
-#chk:checked ~ .div-login {
-    transform: translateY(-500px);
-}
-
-#chk:checked ~ .div-login {
-    transform: scale(1);
-}
-
-#chk:checked ~ .sign-up label {
-    transform: scale(.6);
-}
-/* FIN DE ESTILOS PARA EL LOG-IN */
-
-
-/* INICIO DE CONTROLES GENERALES */
-/* para el label */
-label{
-    /* podria cambiarle la font a una arcade */
-    color: #fff;
-    font-size: 2.3em;
-    justify-content: center;
-    display: flex;
-    margin: 60px;
-    font-weight: bold;
-    cursor: pointer;
-    /* Para la transicion */
-    transition: .5s ease-in-out;
-}
-
-input{
-    width: 60%;
-    height: 40px;
-    background: #e0dede;
-    justify-content: center;
-    display: flex;
-    margin: 20px auto;
-    padding: 10px;
+    background: transparent;
     border: none;
     outline: none;
-    border-radius: 5px;
+    /* Para que debajo de los input aparezca la barra */
+    border-bottom: 2px solid white;
+    padding-right: 23px;
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    transition: .5s;
 }
 
-/* INCIO PARA EL BOTON */
-button{
-    width: 60%;
-    height: 60px;
-    margin: 10px auto;
-    justify-content: center;
-    display: block;
-    color: #fff;
-    background: #573b8a;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 20px;
+/* Al escribir sobre el input le cambio el color */
+.input-box input:focus,
+.input-box input:valid{
+    border-bottom-color: #b4acf5;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 0 ;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: white;
+    pointer-events: none;
+
+    /* Transicion para que suba */
+    transition: .5s;
+}
+
+/* Transicion para q suba */
+.input-box input:focus ~ label,
+.input-box input:valid ~ label{
+    top: -5px;
+    color: #b4acf5;
+}
+
+/* inicio Estilos para el boton de login */
+.btn{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    border: 2px solid #b4acf5;
     outline: none;
-    border: none;
-    border-radius: 5px;
-    transition: .2s ease-in;
+    border-radius: 40px;
     cursor: pointer;
+    color: white;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
 }
 
-button:hover{
-    background: #6d44b8;
+.btn::before{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    z-index: -1;
+    transition: .5s;
 }
-/* FIN DE LOS BOTONES */
-/* FIN DE CONTROLES GENERALES */
+
+.btn:hover::before{
+    top: 0;
+}
+/* fin Estilos para el boton de login */
+
+.form-box .registrate-link{
+    font-size: 14.5px;
+    color: white;
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.registrate-link p a{
+    color: #b4acf5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registrate-link p a:hover{
+    text-decoration: none;
+}
+/* FIN DEL LOGIN */
+
+/* INICIO DE LA INFORMACION */
+.wrapper-login .div-informacion{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Para que el texto aparezca a la derecha */
+.wrapper-login .div-informacion.login{
+    right: 0;
+    text-align: right;
+    padding: 0 40px 60px 150px;
+    /* display: none; */
+}
+
+.wrapper-login .div-informacion.register{
+    left: 0;
+    text-align: left;
+    /* Invierto en comparacion al del login */
+    padding: 0 150px 60px 40px;
+    display: none;
+}
+
+.div-informacion h2{
+    font-size: 36px;
+    color: white;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.div-informacion p{
+    font-size: 16px;
+    color: white;
+}
+/* FIN DE LA INFORMACION */
+
+/* INICIO DE LA SHAPE CURVADA */
+.wrapper-login .curved-shape{
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 900px;
+    height: 700px;
+    background: linear-gradient(45deg,#8f6fe5,#7044be,#6e3a6b);
+    border-bottom: 3px solid #b4acf5;
+    transform: rotate(10deg) skewY(40deg);
+    /* transform: rotate(0) skewY(0); */
+    transform-origin: bottom right;
+}
+
+.wrapper-login .curved-shape-2{
+    position: absolute;
+    top: 100%;
+    left: 250px;
+    width: 900px;
+    height: 700px;
+    background: #1c0829;
+    border-top: 3px solid #b4acf5;
+    /* transform: rotate(-11deg) skewY(-41deg);  */
+    transform: rotate(0) skewY(0); 
+    transform-origin: bottom left;
+}
+/* FIN DE LA SHAPE CURVADA */

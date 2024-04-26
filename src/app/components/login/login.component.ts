@@ -8,11 +8,28 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
+  wrapper: HTMLElement | null;
+  registerLink: HTMLElement | null;
+  loginLink: HTMLElement | null;
 
-  constructor() {}
+  constructor() {
+    this.wrapper = document.querySelector('.wrapper-login');
+    this.registerLink = document.querySelector('.registrate-link');
+    this.loginLink = document.querySelector('.login-link');
 
-  ngOnInit(): void {
-    console.log("Iniciando login...");  
+    // Asignación del evento onclick dentro del constructor
+    if (this.registerLink) {
+      this.registerLink.onclick = () => {
+        if (this.wrapper) {
+          this.wrapper.classList.add('active');
+        }
+      };
+    }
   }
 
+  ngOnInit(): void {
+    console.log("Iniciando login...");   
+  } 
 }
+
+

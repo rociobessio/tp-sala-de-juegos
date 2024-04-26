@@ -97,7 +97,7 @@
 }
 
 .info-section p {
-    color: #aaabb0;
+    color: white;
     font-size: 18px;
     line-height: 1.2;
     text-align: justify;
@@ -105,7 +105,7 @@
 }
 
 .info-section.juego h1 {
-    color: antiquewhite;
+    color: azure;
     font-size: 30px;
     text-transform: uppercase;
     display: inline-block;
@@ -143,7 +143,7 @@
 }
 
 .info-section.juego p {
-    color: #aaabb0;
+    color: white;
     font-size: 18px;
     line-height: 1.2;
     text-align: justify;
@@ -169,7 +169,7 @@
     border: 1px solid #787cb5;
     border-radius: 25px;
     font-size: 18px;
-    color: #aaabb0;
+    color: white;
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.4s;

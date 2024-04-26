@@ -1,34 +1,93 @@
 <!-- <p>login works!</p> -->
 <main>
-    <!-- COMIENZO DEL LOGIN -->
-    <div class="login container">
-        <div class="principal">
-            <!-- COMIENZO DEL SIGN-UP -->
-            <!-- Para ocultarlo -->
-            <input type="checkbox" id="chk" aria-hidden="true">
-            <div class="sign-up">
-                <form>
-                    <label for="chk" aria-hidden="true">Sign-Up</label>
-                    <input type="text" name="txtUsername" placeholder="Username" required>
-                    <input type="email" name="txtEmail" placeholder="Email" required>
-                    <input type="password" name="txtPassword" placeholder="Password" required>
-                    <button>Sign-Up</button>
-                </form>
-            </div>
-            <!-- FIN DEL SIGN UP -->
+    <!-- COMIENZO DEL LOGIN --> 
+    <div class="wrapper-login">
+        
+        <!-- INICIO DE LA FORMA CURVADA -->
+        <div class="curved-shape"></div>
+        <div class="curved-shape-2"></div>
+        <!-- FIN DE LA FORMA CURVADA -->
 
-            <!-- COMIENZO DEL LOGIN -->
-            <div class="div-login">
-                <form>
-                    <label for="chk" aria-hidden="true">Log-In</label>
-                    <input type="email" name="txtEmail" placeholder="Email" required>
-                    <input type="password" name="txtPassword" placeholder="Password" required>
-                    <button>Log-In</button>
-                </form>
-            </div>
-            <!-- FIN DEL LOGIN -->    
+        <div class="form-box login">
+            <h2 class="animation">Log-In</h2>
+            <form action="#">
+                <!-- Para el username -->
+                <div class="input-box animation">
+                    <input type="text" required>
+                    <label for="usuario">Username:</label>
+                    <!-- iconito -->
+                </div>
+                <!-- Para la passwoerd -->
+                <div class="input-box animation">
+                    <input type="text" required>
+                    <label for="password">Password:</label>
+                    <!-- iconito -->
+                </div>
+                <div class="input-box animation">
+                    <button type="submit" class="btn">Log-In</button>
+                </div>
+                <!-- FIN DEL LOGIN --> 
+                
+                <!-- INICIO DEL LINK REGISTRARSE -->
+                <div class="registrate-link animation">
+                    <p>No tenes una cuenta? Registrate <a href="#" class="sign-up">Sign-Up</a></p>
+                </div>
+                <!-- FIN DEL LINK REGISTRARSE -->
+            </form>
         </div>
+        <!-- FIN DEL LOGIN -->
+
+        <!-- COMIENZO DEL DIV DE INTOMACION -->
+        <div class="div-informacion login">
+            <!-- Puede ser algo medio pixel art -->
+            <h2>BIENVENIDO De Nuevo</h2>
+            <p>Ya tenes una cuenta?<br>Que esperas, entra y juga! </p>
+        </div>
+        <!-- FIN DEL DIV DE INFORMACION -->
+
+        <!-- INICIO DEL REGISTER -->
+        <div class="form-box register">
+            <h2>Sign-Up</h2>
+            <form action="#">
+                <!-- Para el username -->
+                <div class="input-box">
+                    <input type="text" required>
+                    <label for="usuario">Username:</label>
+                    <!-- iconito -->
+                </div>
+                <!--  Para el email -->
+                <div class="input-box">
+                    <input type="email" required>
+                    <label for="email">Email:</label>
+                    <!-- iconito -->
+                </div>
+                <!-- Para la passwoerd -->
+                <div class="input-box">
+                    <input type="text" required>
+                    <label for="password">Password:</label>
+                    <!-- iconito -->
+                </div>
+                <div class="input-box">
+                    <button type="submit" class="btn">Sign-Up</button>
+                </div>
+                <!-- FIN DEL LOGIN --> 
+                
+                <!-- INICIO DEL LINK LOGIN -->
+                <div class="registrate-link">
+                    <p>Ya estas registrado? <a href="" class="login-link">Log-In</a></p>
+                </div>
+                <!-- FIN DEL LINK LOGIN -->
+            </form>
+        </div>
+        <!-- FIN DEL REGISTER -->
+
+        <!-- COMIENZO DEL DIV DE INTOMACION -->
+        <div class="div-informacion register">
+            <!-- Puede ser algo medio pixel art -->
+            <h2>BIENVENIDO</h2>
+            <p>Todavia no tenes una cuenta?<br>Que esperas, registrate y juga!</p>
+        </div>
+        <!-- FIN DEL DIV DE INFORMACION -->
     </div>
-    <!-- FIN DEL LOGIN -->
     <br><br><br>
 </main>
