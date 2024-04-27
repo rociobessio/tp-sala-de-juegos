@@ -9,9 +9,10 @@ body {
 
 .container {
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     display: flex;
-    justify-content: center; /* This centers horizontally */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Horizontally center elements */
     align-items: center; /* This centers vertically */
   }
 
@@ -51,3 +52,58 @@ body {
 p {
     font-size: 20px;
 }
+
+/* INICIO DE BOTONES PARA SELECCIONAR JUEGO */
+.botones {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    bottom: 20px;
+}
+
+.btn-botones {
+    margin-top: 20px; /* Ajustar el margen superior para separar los botones de la información */
+} 
+
+.botones button{ 
+    position: relative;
+    width: 200px;
+    height: 45px;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    border: 2px solid #b4acf5;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #333;
+    box-shadow: 0 0 10px #e9e7ed;  
+    border: none;
+    outline: none;
+
+    /* Separo los botones y tambien de arriba */
+    margin-right: 30px;
+    margin-top: 30px;
+}
+.botones button:last-child {
+    margin-right: 0;
+}
+.botones::before{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    z-index: -1;
+    transition: .5s;
+}
+
+.botones:hover::before{
+    top: 0;
+}
+/* FIN DE BOTONES PARA SELECCIONAR JUEGO */
