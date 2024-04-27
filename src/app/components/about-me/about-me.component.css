@@ -1,6 +1,7 @@
 .about-me {
     width: 100%;
     padding: 50px 8%;
+    font-family: monospace;
 }
 
 /* Comienza seccion imagen */
@@ -162,40 +163,41 @@
     margin-top: 20px; /* Ajustar el margen superior para separar los botones de la información */
 }
 
-
-.about-btns button {
-    min-width: 150px;
-    padding: 8px 18px;
-    border: 1px solid #787cb5;
-    border-radius: 25px;
-    font-size: 18px;
-    color: white;
-    letter-spacing: 1px;
+.about-btns button{ 
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    border: 2px solid #b4acf5;
+    outline: none;
+    border-radius: 40px;
     cursor: pointer;
-    transition: all 0.4s;
-    margin-right: 10px;
-}
+    color: white;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+    margin-bottom: 15px; /* Add margin to the bottom */
 
+}
 .about-btns button:last-child {
     margin-right: 0;
 }
+.about-btns::before{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    z-index: -1;
+    transition: .5s;
+}
 
-.image-section button:hover {
-    color: #787cb5;
-    border-color: #aaabb0;
+.about-btns:hover::before{
+    top: 0;
 }
 /* Termina la seccion de botones */
-
-/* Comienza el player 1 */
-.sec-player {
-    text-align: center; 
-}
-
-.sec-player h3 {
-    color: beige;
-    padding-top: 0; /* Elimina el margen superior */
-}
-/* Finaliza el player */
 
 
 /* Comienza el control de GRID */

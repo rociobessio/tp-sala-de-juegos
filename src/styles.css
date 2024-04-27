@@ -8,6 +8,12 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Karmatic Arcade';
+    src: url('/src/assets/fonts/ka1.ttf') format('truetype');
+}
+
+
 /* Modifico el body */
 body{
     width: 100%;
