@@ -19,7 +19,8 @@ main {
 /* Animated Image */
 
 .image-container {
-  width: 150%; /* Adjust width as needed */
+  /* width: 150%; Adjust width as needed */
+  width: 150%;
   max-width: 800px; 
   margin-bottom: 20px;
   position: relative;
@@ -41,6 +42,7 @@ main {
     flex-direction: column; /* Added flex-direction property */
     justify-content: center; /* Added justify-content property */
     align-items: center;
+    height: 40vh;
     background: linear-gradient(#1c0829,#7044be,#1c0829);
     padding: 20px;
     border-radius: 10px;
@@ -52,7 +54,7 @@ main {
 .mostrar .welcome h1,h2 {
     text-align: center; 
     display: block;
-    font-size: 70px;
+    font-size: calc(1.5rem + 2vw);
     margin-bottom: 10px;
     font-family: 'Karmatic Arcade';
     color: #b4acf5;
@@ -100,7 +102,7 @@ p {
 
 .botones button{ 
     position: relative;
-    width: 200px;
+    width: 190px;
     height: 45px;
     background: linear-gradient(#4b357a,#7044be,#4b357a);
     border: 2px solid #b4acf5;
@@ -118,7 +120,7 @@ p {
     outline: none;
 
     /* Separo los botones y tambien de arriba */
-    margin-right: 30px;
+    margin-right: 20px;
     margin-top: 30px;
 }
 .botones button:last-child {
@@ -203,10 +205,10 @@ p {
 }
 
 .info-usuario h1{ 
-    font-size: 50px;
-    font-family: 'Karmatic Arcade';
-    color: #b4acf5; 
-    animation: bounce 2s ease-in-out infinite; 
+  font-size: calc(1.5rem + 2vw);
+  font-family: 'Karmatic Arcade';
+  color: #b4acf5; 
+  animation: bounce 2s ease-in-out infinite; 
 }
 
 .info-usuario p{
