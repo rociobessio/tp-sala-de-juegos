@@ -1,31 +1,55 @@
-body {
+/* General Styles */
+main {
     font-family: monospace;
-    background-color: #000;
     color: #fff;
     text-align: center;
     margin: 0;
     padding: 0;
 }
-
+  
 .container {
-    width: 100%;
-    height: 110vh;
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Horizontally center elements */
-    align-items: center; /* This centers vertically */
-  }
-
-.welcome {
-    background: linear-gradient(#4b357a,#7044be,#4b357a);
-    /* background-color: transparent; */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #e9e7ed;  
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Animated Image */
+
+.image-container {
+  width: 150%; /* Adjust width as needed */
+  max-width: 800px; 
+  margin-bottom: 20px;
+  position: relative;
+  background: linear-gradient(#4b357a,#7044be,#4b357a);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #e9e7ed;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #e9e7ed;
+}
+
+.mostrar {
+    display: flex;
+    flex-direction: column; /* Added flex-direction property */
+    justify-content: center; /* Added justify-content property */
+    align-items: center;
+    background: linear-gradient(#1c0829,#7044be,#1c0829);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #e9e7ed;
+  }
+  
+
 /* INICIO DE LA MODIFICACION DE H1 & H2 */
-.welcome h1,h2 {
+.mostrar .welcome h1,h2 {
     text-align: center; 
     display: block;
     font-size: 70px;
@@ -36,7 +60,6 @@ body {
 
     /* Para la animacion y que ademas esta sea todo el tiempo*/ 
     animation: bounce 2s ease-in-out infinite; 
-
 }
 
 @keyframes bounce {
@@ -47,22 +70,32 @@ body {
     80% { transform: translateY(0); }
     100% { transform: translateY(0); }
 } 
+
 /* FIN DE LA MODIFICACION DE H1 & H2 */
 
+/* INICIO DE MODIFICACION DE LOS <P> */
 p {
     font-size: 20px;
+    margin-top: 20px;
 }
+/* FIN DE MODIFICACION DE LOS <P> */
+  
+
+
 
 /* INICIO DE BOTONES PARA SELECCIONAR JUEGO */
 .botones {
     display: flex;
     align-items: center;
+    justify-content: center;
+    /* Los botones pasarán a la siguiente línea si no hay espacio */
+    flex-wrap: wrap;
     margin-top: 20px;
-    bottom: 20px;
 }
 
 .btn-botones {
-    margin-top: 20px; /* Ajustar el margen superior para separar los botones de la información */
+ /* Ajustar el margen superior para separar los botones de la información */
+    margin-top: 20px;
 } 
 
 .botones button{ 
@@ -107,3 +140,122 @@ p {
     top: 0;
 }
 /* FIN DE BOTONES PARA SELECCIONAR JUEGO */
+
+/* INICIO PARA LAS FLECHAS */
+.arrow-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%; /* Stretch the buttons to the full width */
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.arrow-buttons button {
+  position: absolute; /* Make buttons absolute positioned inside the container */
+  top: 50%; /* Position buttons vertically centered */
+  transform: translateY(-50%); /* Offset buttons for vertical centering */
+  width: 60px;
+  height: 60px;
+  background: #4b357a;
+  border: 2px solid #b4acf5;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.arrow-buttons button.arrow-left {
+    left: 10px; /* Reduce left margin from 20px to 10px */
+}
+
+.arrow-buttons button.arrow-right {
+    right: 10px; /* Reduce right margin from 20px to 10px */
+}
+
+.arrow-buttons button:hover {
+  background-color: #7044be;
+}
+/* FIN PARA LAS FLECHAS */
+
+/* INICIO DE LA INFO DE USUARIO */
+.info-usuario {
+  text-align: center; 
+  display: block;
+  width: 50%;
+  max-width: 500px; 
+  /* padding: 20px;
+  background: linear-gradient(#1c0829,#7044be,#1c0829);
+  border: 2px solid #b4acf5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #e9e7ed; */
+  margin-bottom: 100px;
+}
+
+.info-usuario img {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.info-usuario h1{ 
+    font-size: 50px;
+    font-family: 'Karmatic Arcade';
+    color: #b4acf5; 
+    animation: bounce 2s ease-in-out infinite; 
+}
+
+.info-usuario p{
+    margin-top: 40px;
+}
+/* FIN DE LA INFO DE USUARIO */
+
+
+/* INICIO MOSTRAR Y OCULATAR */
+.welcome, .info-usuario {
+  opacity: 0; /*Oculto desde un principio*/
+  transition: opacity 0.5s ease;
+}
+
+.welcome.active {
+  opacity: 1;
+  /* Corro el div a la izquierda de la pantalla */
+  left: 0;
+}
+
+.info-usuario {
+  text-align: center; 
+  display: block;
+  position: absolute;
+  width: 50%;
+  max-width: 500px; 
+  margin-bottom: 20px;
+}
+
+.info-usuario.active {
+  opacity: 1;
+  /* margin-bottom: 100px; */
+}
+/* FIN MOSTRAR Y OCULATAR */
+
+/* INICIO DE LO RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .image-container {
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .arrow-buttons {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+/* FIN DE LO RESPONSIVE */
+
+  
+
+  
