@@ -16,10 +16,8 @@ main {
   align-items: center;
 }
 
-/* Animated Image */
-
 .image-container {
-  /* width: 150%; Adjust width as needed */
+  /* width: 150%;*/
   width: 150%;
   max-width: 800px; 
   margin-bottom: 20px;
@@ -34,13 +32,13 @@ main {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 0 10px #e9e7ed;
+  box-shadow: 0 0 8px #e9e7ed;
 }
 
 .mostrar {
     display: flex;
-    flex-direction: column; /* Added flex-direction property */
-    justify-content: center; /* Added justify-content property */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 40vh;
     background: linear-gradient(#1c0829,#7044be,#1c0829);
@@ -243,6 +241,50 @@ p {
   /* margin-bottom: 100px; */
 }
 /* FIN MOSTRAR Y OCULATAR */
+
+/* INICIO DE LA IMAGEN DEL CHAT */
+.container-chat {
+  position: absolute;
+  /* Con estos dos controlo la altura de la imagen del chat */
+  bottom: -100px;
+  right: 20px;
+}
+
+.container-chat button,
+.container-ranking button{
+  background: transparent;
+  border: 0;
+}
+
+.container-chat,
+.container-ranking button:hover{
+  cursor: none;
+}
+
+.img-chat {
+  width: 150px;
+  height: auto;
+}
+
+.img-chat, 
+.img-ranking:hover{
+  cursor: pointer; 
+}
+/* FIN DE LA IMAGEN DEL CHAT */
+
+/* INICIO DE LA IMAGEN DEL RANKING */
+.container-ranking {
+  position: absolute;
+  /* Con estos dos controlo la altura de la imagen del chat */
+  bottom: -80px;
+  left: 20px;
+}
+
+.img-ranking {
+  width: 100px;
+  height: 100px;
+}
+/* FIN DE LA IMAGEN DEL RANKING */
 
 /* INICIO DE LO RESPONSIVE */
 @media screen and (max-width: 768px) {

@@ -8,6 +8,11 @@
   
 header{
     padding: 15px;
+    font-family: monospace;
+    color: #fff;
+    display: flex;
+    justify-content: space-between; /* Ajuste para distribuir los elementos */
+    align-items: center; /* Alinear verticalmente al centro */
 }
 
 /* INICIO DE LA MODIFICACION DEL LOGO */
@@ -22,12 +27,15 @@ header{
 
 /* INICIO DE LAS OPCIONES DEL MENU */
 .navbar{
-    margin-top: 24px;
+    margin-top: 20px;
 }
 
 .navbar ul{
     padding: 0;
     margin: 0;
+    list-style-type: none; /* Eliminar viñetas de la lista */
+    display: flex;
+    justify-content: center; /* Centrar los elementos de la lista */
 }
 
 .navbar ul li {
@@ -38,17 +46,18 @@ header{
     margin-left: 26px; /* Espacio entre palabras*/
 }
 
+
+
 .navbar a {
     color: white;
     text-decoration: none;
-}
-
+} 
 /* Para que al pararme sobre las op del header  se cambie su color y tamaño */
 .navbar a:hover{
     font-size: 21px;
     font-weight: bold;
     cursor: pointer;
-    color: indianred;
+    color:#ddd6fe;
     transition: 0.4s ease-in-out;
 }
 
