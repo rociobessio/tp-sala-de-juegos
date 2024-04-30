@@ -1,0 +1,238 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    /* Luego de aca cambiar las font y color */
+    color: white;
+    font-family: monospace;
+}
+
+/* INICIO DEL WRAPPER DEL LOGIN */
+.wrapper-login{
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    height: 450px;
+    /* background: transparent; */
+    background: #1c0829;
+    border: 2px solid #b4acf5;
+    box-shadow: 0 0 10px #e9e7ed;  
+
+    /* Para ocultar la curved shape */
+    overflow: hidden;
+    margin: 20px;
+}
+/* FIN DEL WRAPPER DEL LOGIN */
+
+/* INICIO DEL LOGIN */
+.wrapper-login .form-box{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px; /* Espaciado interno */
+} 
+
+/* Para trasladar el formulario de login */
+.wrapper-login .form-box.register{
+    right: 0;
+    padding: 0 40px 0 60px;
+}
+
+.form-box h2{
+    font-size: 32px;
+    color: white;
+    text-align: center;
+    font-family: 'Karmatic Arcade';
+}
+
+.form-box .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 25px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    /* Para que debajo de los input aparezca la barra */
+    border-bottom: 2px solid white;
+    padding-right: 23px;
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    transition: .5s;
+}
+
+/* Al escribir sobre el input le cambio el color */
+.input-box input:focus,
+.input-box input:valid{
+    border-bottom-color: #b4acf5;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 0 ;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: white;
+    pointer-events: none;
+
+    /* Transicion para que suba */
+    transition: .5s;
+}
+
+/* Transicion para q suba */
+.input-box input:focus ~ label,
+.input-box input:valid ~ label{
+    top: -5px;
+    color: #b4acf5;
+} 
+
+/* inicio Estilos para el boton de login */
+.btn{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    border: 2px solid #b4acf5;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+    margin-bottom: 15px; /* Add margin to the bottom */
+
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn:hover::before{
+    top: 0;
+}
+/* fin Estilos para el boton de login */
+
+.form-box .registrate-link{
+    font-size: 14.5px;
+    color: white;
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.registrate-link p a{
+    color: #b4acf5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registrate-link p a:hover{
+    text-decoration: none;
+}
+    
+/* FIN DEL LOGIN */
+
+/* INICIO DE LA INFORMACION */
+.wrapper-login .div-informacion{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Para que el texto aparezca a la derecha */
+.wrapper-login .div-informacion.register{
+    left: 0;
+    text-align: left;
+    /* Invierto en comparacion al del login */
+    padding: 0 150px 60px 40px;
+    pointer-events: none;
+}
+
+.div-informacion h2{
+    font-size: 36px;
+    color: white;
+    line-height: 1.3;
+    text-transform: uppercase;
+    font-family: 'Karmatic Arcade';
+}
+
+.wrapper-login .div-informacion.login h2,
+.wrapper-login .div-informacion.login p {
+  text-align: left;
+}
+
+
+.div-informacion p{
+    font-size: 16px;
+    color: white;
+}
+/* FIN DE LA INFORMACION */
+
+/* INICIO DE LA SHAPE CURVADA */
+.wrapper-login .curved-shape{
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 900px;
+    height: 700px;
+    background: linear-gradient(45deg,#8f6fe5,#7044be,#6e3a6b);
+    border-bottom: 3px solid #b4acf5;
+    transform: rotate(-11deg) skewY(-41deg); 
+    transform-origin: bottom left;
+    
+}
+
+.form-box h2,
+.div-informacion h2,
+.form-box p,
+.div-informacion p,
+.registrate-link {
+    text-align: center; /* Centrado del texto */
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+}
+
+/* FIN DE LA SHAPE CURVADA */
+
+/* INICIO DE MEDIA QUERYS */
+@media screen and (max-width: 800px) {
+    .wrapper-login {
+        width: 95%;
+    }
+    .form-box {
+        padding: 0 10px;
+    }
+    .form-box h2 {
+        font-size: 24px; 
+    }
+}
+/* FIN DE MEDIA QUERYS */

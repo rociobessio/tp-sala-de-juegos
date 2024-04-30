@@ -15,7 +15,7 @@ main{
     width: 90%;
     max-width: 900px;
     height: 450px;
-    background: transparent;
+    background: #1c0829;
     border: 2px solid #b4acf5;
     box-shadow: 0 0 10px #e9e7ed;  
 
@@ -41,33 +41,6 @@ main{
     left: 0;
     padding: 0 40px 0 60px;
     /* display: none; */
-}
-
-/* Para trasladar el formulario de login */
-.wrapper-login .form-box.login .animation{
-    transform: translateX(0);
-    opacity: 1;
-    filter: blur(0);
-    transition: .7s ease;
-}
-
-/* para cuando desde el ts se ponga 'active' */
-.wrapper-login.active .form-box.login .animation{
-    transform: translateX(-120%);
-    opacity: 0;
-    filter: blur(10px);
-    /* Con esto hago q las cosas se vayan desapareciendo del cuadro 
-    con el style i:0; */
-    transition-delay: calc(.1s * var(--i));
-} 
-
-.wrapper-login .form-box.register{
-    right: 0;
-    padding: 0 40px 0 60px;
-}
-
-.wrapper-login .form-box.register .animation{
-    transform: translateX(120%);
 }
 
 .form-box h2{
@@ -202,66 +175,6 @@ main{
     
 }
 
-/* Para trasladar el formulario de login */
-.wrapper-login .div-informacion.login .animation{
-    transform: translateX(0);
-    opacity: 1;
-    filter: blur(0);
-    transition: .5s ease;
-    transition-delay: calc(.1s * var(--j));
-}
-
-/* para cuando desde el ts se ponga 'active' */
-.wrapper-login.active .div-informacion.login .animation{
-    transform: translateX(120%);
-    opacity: 0;
-    filter: blur(10px);
-    /* Con esto hago q las cosas se vayan desapareciendo del cuadro 
-    con el style i:0; */
-    transition-delay: calc(.1s * var(--i));
-} 
-
-.wrapper-login .form-box.register .animation{
-    transform: translateX(120%);
-    opacity: 0;
-    filter: blur(10px);
-    transition: .7s ease;
-    transition-delay: calc(.1s * var(--j));
-} 
-
-.wrapper-login.active .form-box.register .animation{
-    transform: translateX(0);
-    opacity: 1;
-    filter: blur(0);
-    /* Con esto hago q las cosas se vayan desapareciendo del cuadro 
-    con el style i:0; */
-    transition-delay: calc(.1s * var(--i));
-}
-
-.wrapper-login .div-informacion.register{
-    left: 0;
-    text-align: left;
-    /* Invierto en comparacion al del login */
-    padding: 0 150px 60px 40px;
-    pointer-events: none;
-}
-
-.wrapper-login .div-informacion.register .animation{
-    transform: translateX(-120%);
-    opacity: 0;
-    filter: blur(10px);
-    transition: .7s ease;
-    transition-delay: calc(.1s * var(--j));
-}
-
-/* Para cuadno este activo que se cliqueo el signup/login */
-.wrapper-login.active .div-informacion.register .animation{
-    transform: translateX(0);
-    opacity: 1;
-    filter: blur(0);
-    transition-delay: calc(.1s * var(--i));
-}
-
 .div-informacion h2{
     font-size: 36px;
     color: white;
@@ -296,30 +209,8 @@ main{
     transition: 1.5s ease-in;
     transition-delay: 1.6s;
 }
-/* Cuando cliquee para registrarme se mueve la shape */
-.wrapper-login.active .curved-shape{
-    transform: rotate(0) skewY(0);
-    transition: .5s ;
-}
+/* FIN DE LA SHAPE CURVADA */
 
-.wrapper-login .curved-shape-2{
-    position: absolute;
-    top: 100%;
-    left: 250px;
-    width: 900px;
-    height: 700px;
-    background: #1c0829;
-    border-top: 3px solid #b4acf5;
-    transform: rotate(0) skewY(0); 
-    transform-origin: bottom left;
-    transition: 1.5s ease;
-    transition-delay: .5s;
-}
-
-.wrapper-login.active .curved-shape-2{
-    transform: rotate(-11deg) skewY(-41deg); 
-    transition-delay: 1.2s ;
-}
 .form-box h2,
 .div-informacion h2,
 .form-box p,
