@@ -10,20 +10,18 @@ main{
 }
 
 /* INICIO DEL WRAPPER DEL LOGIN */
-.wrapper-login{
-    position: relative;
-    width: 90%;
-    max-width: 900px;
-    height: 450px;
-    /* background: transparent; */
+.wrapper-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: #1c0829;
     border: 2px solid #b4acf5;
-    box-shadow: 0 0 10px #e9e7ed;  
-
-    /* Para ocultar la curved shape */
-    overflow: hidden;
-    margin: 20px;
+    box-shadow: 0 0 10px #e9e7ed;
+    overflow: hidden; /* Added overflow property */ 
 }
+  
 /* FIN DEL WRAPPER DEL LOGIN */
 
 /* INICIO DEL LOGIN */
@@ -81,7 +79,7 @@ main{
 
 .input-box label{
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0 ;
     transform: translateY(-50%);
     font-size: 16px;
@@ -169,7 +167,7 @@ main{
     left: 0;
     text-align: left;
     /* Invierto en comparacion al del login */
-    padding: 0 150px 60px 40px;
+    padding: 0 500px 60px 40px;
     pointer-events: none;
 }
 
@@ -189,23 +187,25 @@ main{
 
 .div-informacion p{
     font-size: 16px;
-    color: white;
+    color: white; 
 }
 /* FIN DE LA INFORMACION */
 
 /* INICIO DE LA SHAPE CURVADA */
-.wrapper-login .curved-shape{
+.wrapper-login .curved-shape {
     position: absolute;
     top: -4px;
-    right: 0;
-    width: 900px;
-    height: 700px;
-    background: linear-gradient(45deg,#8f6fe5,#7044be,#6e3a6b);
+    left: 0;
+    width: 1900px; /* Increased width from 900px to 1200px */
+    height: 900px; /* Increased height from 700px to 900px */
+    background: linear-gradient(45deg, #6e3a6b, #7044be, #8f6fe5 );
     border-bottom: 3px solid #b4acf5;
-    transform: rotate(-11deg) skewY(-41deg); 
+    transform: rotate(-11deg) skewY(-41deg);
     transform-origin: bottom left;
-    
+    transition: 1.5s ease-in;
+    transition-delay: 1.6s;
 }
+  
 
 .form-box h2,
 .div-informacion h2,

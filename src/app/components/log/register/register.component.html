@@ -1,6 +1,6 @@
 <!-- <p>login works!</p> -->
 <main>
-    <!-- COMIENZO DEL LOGIN --> 
+    <!-- COMIENZO DEL REGISTER --> 
     <div class="wrapper-login">
         
         <!-- INICIO DE LA FORMA CURVADA -->
@@ -11,38 +11,35 @@
         <div class="form-box register">
             <h2 style="--i:17; --j:0;">Sign-Up</h2>
             <form action="#">
-                <!-- Para el username -->
-                <div class="input-box"
-                style="--i:18; --j:1;">
-                    <input type="text" required>
-                    <label for="usuario">Username:</label>
-                    <!-- iconito -->
-                </div>
-                <!--  Para el email -->
-                <div class="input-box"
-                style="--i:19; --j:2;">
-                    <input type="email" required>
-                    <label for="email">Email:</label>
-                    <!-- iconito -->
-                </div>
-                <!-- Para la passwoerd -->
-                <div class="input-box"
-                style="--i:20; --j:3;">
-                    <input type="password" required>
+                <!-- INICIO PARA EL E-MAIL -->
+                <div class="input-box">
+                    <input type="email" required autocomplete="off"
+                    [(ngModel)]="user.email" name="inputEmail">
+                    <label for="email">E-mail:</label> 
+                </div> 
+                <!-- FIN PARA EL E-MAIL -->
+
+                <!-- INICIO PARA LA PASSWOED -->
+                <div class="input-box">
+                    <input type="password" required autocomplete="off"
+                    [(ngModel)]="user.clave" name="inputPass">
                     <label for="password">Password:</label>
-                    <!-- iconito -->
                 </div>
+                <!-- FIN PARA LA PASSWOED -->
+
+                <!-- INICIO PARA EL BOTON SIGN-UP -->
                 <div class="input-box"
                 style="--i:21; --j:4;">
-                    <button type="submit" class="btn">Sign-Up</button>
+                    <button type="submit" class="btn"
+                    (click)="register()">Sign-Up</button>
                 </div>
-                <!-- FIN DEL LOGIN --> 
+                <!-- FIN PARA EL BOTON SIGN-UP --> 
                 
                 <!-- INICIO DEL LINK LOGIN -->
-                <div class="registrate-link"
-                style="--i:22; --j:5;">
-                    <p>Ya estas registrado? <a href="/login" class="login-link"
-                    >Log-In</a></p>
+                <div class="registrate-link" style="--i:22; --j:5;">
+                    <p>Ya estas registrado? 
+                        <a href="login" class="login-link">Log-In</a>
+                    </p>
                 </div>
                 <!-- FIN DEL LINK LOGIN -->
             </form>
@@ -53,7 +50,8 @@
         <div class="div-informacion register">
             <!-- Puede ser algo medio pixel art -->
             <h2 style="--i:0; --j:20;">Hola!</h2>
-            <p style="--i:1; --j:21;">Todavia no tenes una cuenta?<br>Que esperas, registrate y juga! </p>
+            <p class="paragraph">Todavia no tenes una cuenta?</p>
+            <p class="paragraph">Que esperas, registrate y juga!</p>
         </div>
         <!-- FIN DEL DIV DE INFORMACION -->
     </div>
