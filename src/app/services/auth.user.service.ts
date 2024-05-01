@@ -29,22 +29,15 @@ export class UserService{
         }
     }
 
-    login(email:string , pass: string){
-        try {
-          // Verificar si el correo electrónico está vacío
-          if (!email) {
-            throw new Error('El correo electrónico no puede estar vacío.');
-          }
-          // Verificar si el correo electrónico tiene un formato válido
-          if (!/\S+@\S+\.\S+/.test(email)) {
-            throw new Error('El correo electrónico proporcionado no tiene un formato válido.');
-          }
-          // Intentar iniciar sesión
-          return signInWithEmailAndPassword(this.auth, email, pass);
-        } catch(error) {
-          console.error('Error en el inicio de sesión:', error);
-          return null;
-        }
-      }
+    
+  async login(email: string, password: string) {
+    try {
+      console.log('en el login');
+      return await signInWithEmailAndPassword(this.auth,email, password);
+    } catch (error) {
+      console.log("error al loguearse", error);
+      return null;
+    }
+  }
       
 }
