@@ -11,6 +11,7 @@
         <div class="form-box register">
             <h2 style="--i:17; --j:0;">Sign-Up</h2>
             <form action="#">
+                
                 <!-- INICIO PARA EL E-MAIL -->
                 <div class="input-box">
                     <input type="email" required autocomplete="off"
@@ -26,6 +27,14 @@
                     <label for="password">Password:</label>
                 </div>
                 <!-- FIN PARA LA PASSWOED -->
+
+                <!-- INICIO DE CONFIRMACION DE PASSWORD -->
+                <div class="input-box">
+                    <input type="password" required autocomplete="off"
+                    [(ngModel)]="confirmPass" name="inputPassConfirm">
+                    <label for="password">Confirm Password:</label>
+                </div>
+                <!-- FIN DE CONFIRMACION DE PASSWORD -->
 
                 <!-- INICIO PARA EL BOTON SIGN-UP -->
                 <div class="input-box"

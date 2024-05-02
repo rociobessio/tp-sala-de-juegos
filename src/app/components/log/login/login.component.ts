@@ -45,16 +45,23 @@ export class LoginComponent implements OnInit{
           //-->Que me lleve al home
           this.router.navigate(['/home']);
         }
-        else{//-->Algo salio mal muestro un sweet aleret
+        else{//-->Algo salio mal con las credenciales de sesion
           Swal.fire({
             icon: 'warning',
             title: 'Cuidado',
-            text: 'Ocurrio un error al intentar loguearse, reintente!'
+            text: 'E-mail o contraseña no validos.',
+            footer: 'Reintente!'
           });
         }
       })
-      .catch(error => {
-        console.error('Error en el inicio de sesión:', error); 
+      .catch(error => {//-->Rompio otra cosa
+        console.error('error en el inicio de sesión:', error); 
+        Swal.fire({
+          icon: 'warning',
+          title: 'Cuidado',
+          text: 'Ocurrio un error al intentar loguearse.',
+          footer: 'Reintente!'
+        })
       });
   }
   
