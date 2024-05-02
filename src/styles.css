@@ -1,6 +1,8 @@
 /* Importo bootstrap */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
+/* @import '/src/assets/fonts/ka1.ttf'; */
+
 
 *{ 
     margin: 0;
@@ -10,7 +12,7 @@
 
 @font-face {
     font-family: 'Karmatic Arcade';
-    src: url('/src/assets/fonts/ka1.ttf') format('truetype');
+    src: url('./assets/fonts/ka1.ttf') format('truetype');
 }
 
 
