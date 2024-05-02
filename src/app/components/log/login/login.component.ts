@@ -16,8 +16,8 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit{
 
-  constructor(private router : Router, private userService : UserService) { }
-  
+  constructor(private router : Router, private userService: UserService) { }
+
   public user: Usuario = { email: '', clave: '' };
 
   ngOnInit(): void {
@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit{
     //-->Voy al service para loguearme
     this.userService.login(email, clave)
       ?.then(response => {
-        if(response !== null){//-->Salio bien
-          //-->Guardo el TOKEN
+        if(response != null){//-->Salio bien
+          //-->Guardo el TOKEN en el localstorage
           localStorage.setItem('token', response.user!.uid);
           console.log(response);
           console.log('Correctamente logueado');

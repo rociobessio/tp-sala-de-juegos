@@ -17,7 +17,7 @@ export class RegisterComponent {
   /**
   * llamo al inyectable del servicio
   */
-  constructor(private router : Router, private userService : UserService) { }
+  constructor(private router : Router, private userService: UserService) { }
   //--> Inicializando interfaz del usuerio
   public user: Usuario = { email: '', clave: '' };
 
@@ -27,22 +27,22 @@ export class RegisterComponent {
   */
   register() : void{
     //-->Que no este vacio
-    console.log('estoy en register');
-    if (this.user.clave != '' && this.user.email != ''){  
-      this.userService.register(this.user.email,this.user.clave)?.
-      then( response =>{
-        console.log(response);
-        console.log('Correctamente registrado');
-        //-->Que me lleve al home
-        this.router.navigate(['/home']);
-      })
-      .catch(//-->Muestro alert de error
+    // console.log('estoy en register');
+    // if (this.user.clave != '' && this.user.email != ''){  
+    //   this.userService.register(this.user.email,this.user.clave)?.
+    //   then( response =>{
+    //     console.log(response);
+    //     console.log('Correctamente registrado');
+    //     //-->Que me lleve al home
+    //     this.router.navigate(['/home']);
+    //   })
+    //   .catch(//-->Muestro alert de error
 
-      );
-    }
-    else{
-      console.log('vacios');
-    }
+    //   );
+    // }
+    // else{
+    //   console.log('vacios');
+    // }
     
   }
 

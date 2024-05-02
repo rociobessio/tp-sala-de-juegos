@@ -210,7 +210,9 @@ p {
 }
 
 .info-usuario p{
-    margin-top: 40px;
+  margin-top: 40px;
+  color: #b4acf5; 
+  font-family: 'Karmatic Arcade';
 }
 /* FIN DE LA INFO DE USUARIO */
 
