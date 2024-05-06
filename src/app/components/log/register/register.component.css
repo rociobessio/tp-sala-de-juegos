@@ -19,7 +19,7 @@ main{
     background: #1c0829;
     border: 2px solid #b4acf5;
     box-shadow: 0 0 10px #e9e7ed;
-    overflow: hidden; /* Added overflow property */ 
+    overflow: hidden;
 }
   
 /* FIN DEL WRAPPER DEL LOGIN */
@@ -169,6 +169,10 @@ main{
     /* Invierto en comparacion al del login */
     padding: 0 500px 60px 40px;
     pointer-events: none;
+
+    @media (max-width: 768px) {
+        padding: 0 20px 40px 80px;
+      }
 }
 
 .div-informacion h2{
@@ -196,8 +200,8 @@ main{
     position: absolute;
     top: -4px;
     left: 0;
-    width: 1900px; /* Increased width from 900px to 1200px */
-    height: 900px; /* Increased height from 700px to 900px */
+    width: 1900px;
+    height: 900px;
     background: linear-gradient(45deg, #6e3a6b, #7044be, #8f6fe5 );
     border-bottom: 3px solid #b4acf5;
     transform: rotate(-11deg) skewY(-41deg);
@@ -224,9 +228,9 @@ main{
 /* FIN DE LA SHAPE CURVADA */
 
 /* INICIO DE MEDIA QUERYS */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
     .wrapper-login {
-        width: 95%;
+        width: 100%;
     }
     .form-box {
         padding: 0 10px;

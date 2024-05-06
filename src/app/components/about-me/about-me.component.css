@@ -177,9 +177,13 @@
     font-weight: 600;
     z-index: 1;
     overflow: hidden;
-    margin-bottom: 15px; /* Add margin to the bottom */
+    margin-bottom: 15px;
+    /* Separo un poco los botones */
+    margin-right: 10px;
 
+    
 }
+
 .about-btns button:last-child {
     margin-right: 0;
 }
@@ -197,6 +201,9 @@
 
 .about-btns:hover::before{
     top: 0;
+}
+button:hover{
+    cursor: url('/src/assets/cursors/Link-Amethyst.cur');
 }
 /* Termina la seccion de botones */
 

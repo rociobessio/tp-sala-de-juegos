@@ -15,7 +15,6 @@
     src: url('./assets/fonts/ka1.ttf') format('truetype');
 }
 
-
 /* Modifico el body */
 body{
     width: 100%;
@@ -23,5 +22,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Cambio el cursor */
+    cursor:  url('./assets/cursors/Normal-Amethyst.cur'), auto;
 }
 

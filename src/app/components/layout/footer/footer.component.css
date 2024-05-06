@@ -116,4 +116,10 @@ footer .wave#wave4{
 /* FIN DE LA ANIMACION DE LAS OLAS */
 
 /* INICIO DE @MEDIA */ 
+@media screen and (max-width: 500px) {
+    footer{
+        width: 100% !important;
+        height: 100%;
+    }
+}
 /* FIN DE @MEDIA */

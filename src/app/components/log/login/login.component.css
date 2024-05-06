@@ -184,7 +184,7 @@ main{
     padding: 0 40px 60px 150px;
     /* display: none; */
     @media (max-width: 768px) {
-        padding: 0 20px 40px 80px; /* Smaller padding for smaller screens */
+        padding: 0 20px 40px 80px;
       }
     
 }
@@ -242,9 +242,9 @@ main{
 /* FIN DE LA SHAPE CURVADA */
 
 /* INICIO DE MEDIA QUERYS */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
     .wrapper-login {
-        width: 95%;
+        width: 100%;
     }
     .form-box {
         padding: 0 10px;

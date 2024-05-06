@@ -70,7 +70,7 @@ header{
 /* FIN DE ICONO DE MENU */
 
 /* INICIO DE AJUSTES PARA QUE SEA RESPONSIVE */
-@media screen and (min-width:768px) and (max-width:900px){
+@media screen and (max-width:300px){
     .navbar{
         position: fixed;
         transition: 0.4s ease-in-out;

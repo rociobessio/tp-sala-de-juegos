@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit{
       ?.then(response => {
         if(response != null){//-->Salio bien
           //-->Guardo el TOKEN en el localstorage
-          localStorage.setItem('token', response.user!.uid);
+          // localStorage.setItem('token', response.user!.uid);
           console.log(response);
           console.log('Correctamente logueado');
 

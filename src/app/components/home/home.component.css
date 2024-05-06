@@ -45,8 +45,8 @@ main {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px #e9e7ed;
-  }
-  
+}
+
 
 /* INICIO DE LA MODIFICACION DE H1 & H2 */
 .mostrar .welcome h1,h2 {
@@ -139,6 +139,12 @@ p {
 .botones:hover::before{
     top: 0;
 }
+
+/* Cambio el tipo de cursor */
+button:hover{
+  cursor: url('/src/assets/cursors/Link-Amethyst.cur');
+}
+
 /* FIN DE BOTONES PARA SELECCIONAR JUEGO */
 
 /* INICIO PARA LAS FLECHAS */

@@ -3,6 +3,7 @@ import { Auth,createUserWithEmailAndPassword, signInWithEmailAndPassword } from 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore, Timestamp, addDoc, collection } from "@angular/fire/firestore";
 import { signOut } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 @Injectable({
@@ -76,7 +77,19 @@ export class UserService{
 
   logOut(){
     console.log('Deslogueandose');
-    return signOut(this.authAngFire);
+    //-->Elimino el token
+    // localStorage.removeItem('token');
+    return signOut(this.authAngFire)
+    .then(() => {
+        console.log(this.authAngFire.currentUser?.email)
+      })
+    .catch(error =>{
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Ocurrio un error al intentar desloguearse.',
+            footer: 'Reintente!'
+        }); 
+    });
   }
-      
 }
