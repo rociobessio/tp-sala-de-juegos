@@ -25,9 +25,10 @@ export class UserService{
      * @param pass 
      * @returns 
      */
-  register(email:string , pass: string) {
+  async register(email:string , pass: string) {
       try{
-          return createUserWithEmailAndPassword(this.authAngFire,email,pass);
+        //-->Con el await al ser un metodo asincrono evito el error que tiraba por consola
+        return await createUserWithEmailAndPassword(this.authAngFire,email,pass);
       }
       catch(error){
           console.log('Error en el registro', error);
@@ -61,15 +62,14 @@ export class UserService{
             return null;
         }
     } catch (error) {
-        console.error("Error al iniciar sesión:", error);
+        // console.error("Error al iniciar sesión:", error);
         return null;
     }
   }
 
   /**
    * Me permitira obtener info del usuario
-   * loggueado para utilizarla.
-   * Devuelve un observable
+   * loggueado para utilizarla. 
    */
   getUserLogged(){
     return this.authAngFire.currentUser;
