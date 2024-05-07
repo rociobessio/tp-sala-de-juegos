@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit{
           console.log('Correctamente logueado');
 
           //-->Que me lleve al home
-          this.router.navigate(['/home']);
+          // this.router.navigate(['/home']);
+          this.router.navigateByUrl('home');
         }
         else{//-->Algo salio mal con las credenciales de sesion
           Swal.fire({

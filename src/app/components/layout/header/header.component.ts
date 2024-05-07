@@ -18,9 +18,8 @@ export class HeaderComponent {
   constructor(private userService: UserService, private router: Router) {}
 
   logOut(){
-    console.log('en logout');
-    
+    // console.log('en logout');
     this.userService.logOut();
-    this.router.navigate(['/login']);
+    this.router.navigateByUrl('login');
   }
 }
