@@ -32,7 +32,8 @@ main {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 0 8px #e9e7ed;
+  /* Aca se le pone el circulito */
+  /* box-shadow: 0 0 5px #e9e7ed; */
 }
 
 .mostrar {
