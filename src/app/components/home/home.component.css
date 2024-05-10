@@ -25,7 +25,7 @@ main {
   background: linear-gradient(#4b357a,#7044be,#4b357a);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px #e9e7ed;
+  /* box-shadow: 0 0 10px #e9e7ed; */
 }
 
 .image-container img {

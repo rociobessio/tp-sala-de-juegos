@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { Auth,createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@angular/fire/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore, Timestamp, addDoc, collection } from "@angular/fire/firestore";
-import { signOut } from "firebase/auth";
+import { Router } from "@angular/router";
+import { fetchSignInMethodsForEmail, getAuth, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 
 
@@ -15,8 +16,10 @@ import Swal from "sweetalert2";
  * del mamejo de usuarios
  */
 export class UserService{
+  msjError: string = "";
+
   //
-  constructor(private authAngFire: Auth,private firestore: Firestore){ }
+  constructor(private authAngFire: Auth,private firestore: Firestore,private router: Router){ }
 
   /**
      * Metodo asincronico para registrar
@@ -25,17 +28,56 @@ export class UserService{
      * @param pass 
      * @returns 
      */
-  async register(email:string , pass: string) {
-      try{
-        //-->Con el await al ser un metodo asincrono evito el error que tiraba por consola
-        return await createUserWithEmailAndPassword(this.authAngFire,email,pass);
-      }
-      catch(error){
-          console.log('Error en el registro', error);
-          return null;
-      }
-  }
+  register(email: string, pass: string){
+    createUserWithEmailAndPassword(this.authAngFire, email, pass)
+    .then((response) =>{
+      //-->Guardo el log
+      addDoc(collection(this.firestore, 'logs'), {
+        email: email,
+        loginTime: Timestamp.now()
+      });
 
+      Swal.fire({
+        icon: 'success',
+        title: 'Exito!',
+        text: 'Se ha registrado correctamente.',
+        footer: 'Felicidades!',
+        timer: 1500
+      });
+
+      //-->Todo ok, voy al home
+      this.router.navigate(["/home"]);
+    })
+    .catch((error) =>{
+      //-->Los errores posibles
+      switch(error.code){
+        case "auth/invalid-email":
+          this.msjError = "Email no valido!"
+        break;
+        case "auth/email-already-in-use":
+          this.msjError = "Email ya registrado!"
+        break;
+        case "auth/weak-password":
+          this.msjError = "La contraseña debe ser mayor a 6 caracteres!"
+        break;
+        default:
+          this.msjError = "Error inesperado al intentar registrarse!"
+        break;
+      }
+
+      //-->Lanzo el mensaje de error
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: this.msjError,
+        footer: 'Reintente!'
+      });
+    });
+
+}
+
+
+   
     
   /**
    * Metodo que me permitira realizar un login 

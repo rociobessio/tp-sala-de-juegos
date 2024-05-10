@@ -32,45 +32,11 @@ export class RegisterComponent {
   * Si todo sale bien loguea para crear el log y 
   * me lleva al home. Sino  salta una alerta con los errores.
   */
-  register(): void { 
-    if (this.user.clave == this.confirmPass && (this.user.clave != '' && this.user.email != '')) {
-        this.userService.register(this.user.email, this.user.clave)
-            ?.then(response => {
-                console.log('Correctamente registrado');
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Exito!',
-                    text: 'Se ha registrado correctamente.',
-                    footer: 'Felicidades!'
-                }).then(() => {
-                    //-->Logueo y redirecciono al home
-                    this.userService.login(this.user.email, this.user.clave)
-                        .then(res => {
-                            if (res != null)
-                                this.router.navigateByUrl('home');
-                        });
-                });
-            })
-            .catch(error => {
-                console.error('Error en el registro:', error);
-                //--> Mostrando mensaje de error por coincidencia de un registro existente
-                if (error.code === 'auth/email-already-in-use') {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'El correo electrónico ya está en uso.',
-                        footer: 'Reintente con otro correo electrónico.'
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Ocurrió un error al registrar el usuario.',
-                        footer: 'Reintente!'
-                    });
-                }
-            });
-    } else {
+  OnRegister(): void {
+    if (this.user.clave == this.confirmPass && (this.user.clave != '' && this.user.email != '')) 
+    {
+        this.userService.register(this.user.email, this.user.clave);
+    }else {
         //-->No coinciden las paswword
         Swal.fire({
             icon: 'error',
@@ -79,7 +45,8 @@ export class RegisterComponent {
             footer: 'Reintente!'
         });
     }
-  }
+}
+
 
 
 }
