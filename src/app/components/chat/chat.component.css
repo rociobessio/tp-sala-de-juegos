@@ -94,6 +94,9 @@ main {
 .content-message p{
   display: flex;
   flex-direction: column;
+  max-width: 80%;
+  word-wrap: break-word;
+
 }
 
 .content-message p>span{

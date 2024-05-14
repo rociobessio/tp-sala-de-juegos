@@ -65,7 +65,7 @@ export class ChatComponent implements OnInit{
     let message = {//-->Lo creo
       emisor: this.userLoggued.email,
       texto: this.newMessage.texto,
-      fecha: new Date().toTimeString() + " - " + new Date().toDateString()
+      fecha: new Date().toTimeString()
     };
     console.log(message);
     

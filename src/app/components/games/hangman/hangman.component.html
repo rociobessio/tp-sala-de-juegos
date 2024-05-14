@@ -25,17 +25,35 @@
             <!-- INICIO DE LA PALABRA A BUSCAR -->
             <div class="row">
                 <div class="col text-center">
-                    <h2>palabra a buscar</h2>
+                    <h2>{{hiddenWord}}</h2>
                 </div>
-            </div>
+            </div><br>
             <!-- FIN DE LA PALABRA A BUSCAR -->
 
             <!-- INICIO DEL TECLADO -->
-
+            <div class="row" *ngIf="winnerOrNo==undefined">
+                <div class="col">
+                    <!-- Recorro el array de letras donde definire distintos estilos si estan cliqueadas o no -->
+                    <button (click)="checkLetter(letter)"
+                    *ngFor="let letter of lettersKeyboard"
+                    [ngClass]="letterClicked[letter] ? 'letter-clicked' : 'letter-no-clicked'"
+                    class="button-letter">
+                        {{letter.toUpperCase()}}
+                    </button>
+                </div>
+            </div>
             <!-- FIN DEL TECLADO -->
 
+            <!-- INICIO PARA MOSTRAR SI FINALIZO SU PARTIDO AGOTANDO INTENTOS O GANANDO -->
+            <div class="row" *ngIf="winnerOrNo==true||winnerOrNo==false">
+                <div class="col">
+                    <button class="btn-restart-game" (click)="restartGame()">RESTART GAME</button>
+                </div>
+            </div>
+            <!-- FIN PARA MOSTRAR SI FINALIZO SU PARTIDO AGOTANDO INTENTOS O GANANDO -->
 
         </div>
         <!-- FIN DEL CONTENEDOR DEL HANG-MAN -->
     </div>
 </main>
+<br><br><br><br>

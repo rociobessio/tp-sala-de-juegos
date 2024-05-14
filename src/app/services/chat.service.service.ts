@@ -55,7 +55,7 @@ export class ChatServiceService {
         if (change.type === 'added') {
           messages.push({
             emisor: change.doc.data()['emisor'],
-            fecha: change.doc.data()['fecha'],
+            fecha: change.doc.data()['fecha'],//-->Deberia de ser solo la hora
             texto: change.doc.data()['texto']
           });
           messages.sort(this.sortMessages);
