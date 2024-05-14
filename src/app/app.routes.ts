@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LoginComponent } from './components/log/login/login.component';
 import { RegisterComponent } from './components/log/register/register.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { HangmanComponent } from './components/games/hangman/hangman.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/login',  pathMatch:'full'},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path:'home', component:HomeComponent},
     {path:'chat', component:ChatComponent},
     {path:'about-me', component:AboutMeComponent},
+    {path:'hang-man', component:HangmanComponent},
     {path:'**', component:PageNotFoundComponent}
 ];
  

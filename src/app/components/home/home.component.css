@@ -251,50 +251,6 @@ button:hover{
 }
 /* FIN MOSTRAR Y OCULATAR */
 
-/* INICIO DE LA IMAGEN DEL CHAT */
-.container-chat {
-  position: absolute;
-  /* Con estos dos controlo la altura de la imagen del chat */
-  bottom: -100px;
-  right: 20px;
-}
-
-.container-chat button,
-.container-ranking button{
-  background: transparent;
-  border: 0;
-}
-
-.container-chat,
-.container-ranking button:hover{
-  cursor: none;
-}
-
-.img-chat {
-  width: 150px;
-  height: auto;
-}
-
-.img-chat, 
-.img-ranking:hover{
-  cursor: pointer; 
-}
-/* FIN DE LA IMAGEN DEL CHAT */
-
-/* INICIO DE LA IMAGEN DEL RANKING */
-.container-ranking {
-  position: absolute;
-  /* Con estos dos controlo la altura de la imagen del chat */
-  bottom: -80px;
-  left: 20px;
-}
-
-.img-ranking {
-  width: 100px;
-  height: 100px;
-}
-/* FIN DE LA IMAGEN DEL RANKING */
-
 /* INICIO DE LO RESPONSIVE */
 @media screen and (max-width: 768px) {
   .image-container {
