@@ -1,6 +1,6 @@
 <main>
     <div class="container">
-        <div class="image-container">
+        <div class="image-container" *ngIf="userEmail">
             <!-- INICIO DONDE MOSTRARE UN DIV O EL OTRO -->
             <div class="mostrar">
                 
@@ -8,7 +8,8 @@
                 <div class="info-usuario" [class.active]="!mostrarWelcome">
                     <img src="../../../assets/pixel-bird.gif" alt="img-usuario" class="img-usuario">
                     <h1>PLAYER</h1>
-                    <p>{{usuario}}</p>
+                    <!-- <p>{{usuario}}</p> -->
+                    <p>{{userEmail}}</p>
                 </div>
                 <!-- FIN DE LA INFO DEL USUARIO-->
 
@@ -38,23 +39,5 @@
             </div>
             <!-- FIN DE LOS BOTONES DE LOS JUEGOS-->
         </div>
-
-        <!-- INICIO DEL CHAT -->
-        <div class="container-chat">
-            <!-- Button para el chat -->
-            <button>
-                <img src="../../../assets/chat-icon.png" alt="img-chat" class="img-chat">
-            </button>
-        </div>
-        <!-- FIN DEL CHAT -->
-
-        <!-- INICIO DEL RANKING -->
-        <div class="container-ranking">
-            <!-- Button para un ranking/listado -->
-            <button>
-                <img src="../../../assets/ranking-icon.png" alt="img-ranking" class="img-ranking">
-            </button>
-        </div>
-        <!-- FIN DEL RANKING -->
     </div>
 </main>

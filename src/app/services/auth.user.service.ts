@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
-import { Auth,createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@angular/fire/auth";
+import { Auth,createUserWithEmailAndPassword, signInWithEmailAndPassword, user } from "@angular/fire/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore, Timestamp, addDoc, collection } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
-import { fetchSignInMethodsForEmail, getAuth, signOut } from "firebase/auth";
+import { User, fetchSignInMethodsForEmail, getAuth, signOut } from "firebase/auth";
+import { Observable, from, map, of } from "rxjs";
 import Swal from "sweetalert2";
+import { Usuario } from "../interfaces/user.interface";
 
 
 @Injectable({
@@ -18,7 +20,6 @@ import Swal from "sweetalert2";
 export class UserService{
   msjError: string = "";
 
-  //
   constructor(private authAngFire: Auth,private firestore: Firestore,private router: Router){ }
 
   /**
@@ -113,9 +114,18 @@ export class UserService{
    * Me permitira obtener info del usuario
    * loggueado para utilizarla. 
    */
-  getUserLogged(){
-    return this.authAngFire.currentUser;
+  // getUserLogged(){
+  //   return this.authAngFire.currentUser;
+  // }
+  getUserLogged(): Observable<User | null> {
+    return Observable.create((observer: { next: (arg0: User | null) => void; complete: () => void; }) => {
+      observer.next(this.authAngFire.currentUser);
+      observer.complete(); // Complete the observable
+    });
   }
+  
+  
+  
 
   logOut(){
     console.log('Deslogueandose');

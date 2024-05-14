@@ -1,19 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/auth.user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent{
-  usuario?: string | null | undefined | void= this.getUserLogged();
-  // fIngreso: string = '';
+export class HomeComponent implements OnInit{
+  // usuario: string|null = this.getUserLogged();
+  userEmail: string | null = null;
   mostrarWelcome = true;
 
   constructor(private userService : UserService) {}
+
+  /**
+   * En el onInit 
+   * guardo el email y lo imprimo
+   * asi tambien corroboro
+   * que haya logueado para mostrar el
+   * componente.
+   */
+  ngOnInit() {
+    this.userService.getUserLogged().subscribe(user => {
+      if (user) {
+        console.log('Logged in user email:', user.email);
+        this.userEmail = user.email;
+      } else {
+        this.userEmail = null;
+      }
+    });
+  }
 
   toggleWelcomeAndUserInfo() {
     this.mostrarWelcome = !this.mostrarWelcome;
@@ -26,9 +45,19 @@ export class HomeComponent{
    * y ademas el getUserLogged del servicio
    * retorna un observable.
    */
-  getUserLogged(): string | null {
-    const user = this.userService.getUserLogged();
-    return user ? user.email : null;
+  getUserLogged() :string|null {
+    this.userService.getUserLogged().subscribe(user => {
+      if (user) {
+        console.log('Logged in user email:', user.email);
+        return user.email;
+      } else {
+        return null;
+      }
+    });
+    return null;
+
+    // const user = this.userService.getUserLogged();
+    // return user ? user.email : null;
   }
   
 }

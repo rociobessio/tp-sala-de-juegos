@@ -1,0 +1,99 @@
+main {
+    font-family: monospace;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+  
+/* INICIO DE LOS CONTENEDORES GENERALES DEL COMPONENTE CHAT */
+.container {
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#4b357a,#7044be,#4b357a);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #e9e7ed;
+}
+
+.container-chat{
+  width: 150%;
+  max-width: 800px; 
+  margin-bottom: 20px;
+  position: relative;
+  background: linear-gradient(#4b357a,#7044be,#4b357a);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #e9e7ed;
+}
+
+.container-chat hr{
+  box-shadow: 0 0 10px #e9e7ed;
+}
+
+.content-message{
+  overflow: scroll;
+  padding: 0.3rem;
+}
+.content-message::-webkit-scrollbar{
+  display: none;
+}
+/* FIN DE LOS CONTENEDORES GENERALES DEL COMPONENTE CHAT */
+
+/* INCIO DE LA IMAGEN DEL BOTON SEND */
+.container-chat img{
+  width: 55px;
+  background: #b4acf5;
+  border-radius: 0px 0px 10px;
+}
+
+.img-send:active{
+  transform: scale(0.9);
+}
+/* FIN DE LA IMAGEN DEL BOTON SEND */
+
+/* INICIO DE ESTADOS DE LOS MENSAJES */
+.send{
+  display: block;
+  float: right;
+  background-color: #b4acf5;
+  min-width: 50.01%;
+  border-radius: 10px 10px 0px;
+  text-align: left;
+}
+
+.received{
+  display: block;
+  float: left;
+  background-color: #9082fa;
+  min-width: 50.01%;
+  border-radius: 0px 10px 10px;
+  text-align: left;
+}
+
+/* INICIO DEL HEADER DEL CHAT */
+.chat-header h2{
+  text-align: center; 
+  display: block;
+  font-size: calc(1.5rem + 2vw);
+  margin-bottom: 10px;
+  font-family: 'Karmatic Arcade';
+  color: #b4acf5;
+  margin: 20px auto; 
+  /* Para la animacion y que ademas esta sea todo el tiempo*/ 
+  animation: bounce 2s ease-in-out infinite; 
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-20px); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(-20px); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+} 
+/* FIN DEL HEADER DEL CHAT */
