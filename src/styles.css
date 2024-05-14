@@ -27,3 +27,16 @@ body{
     cursor:  url('./assets/cursors/Normal-Amethyst.cur'), auto;
 }
 
+/* INICIO DE MODIFICACION DEL SCROLLBAR */
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+  background: transparent;
+}
+  
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#7044be,#b4acf5);
+  border-radius: 10px;
+}
+/* FIN DE MODIFICACION DEL SCROLLBAR */

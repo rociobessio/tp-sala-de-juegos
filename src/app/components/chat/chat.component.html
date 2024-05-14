@@ -9,14 +9,17 @@
             </div>
             <hr>
             <!-- FIN DEL HEADER DEL CHAT -->
-
+            <div>
+                
+            </div>
             <!-- INICIO DEL CUERPO DE MENSAJES -->
             <div class="container-messages">
                 <div class="content-message h-100">
                     <!-- Por cada mensaje necesitare un parrafo -->
                     <p *ngFor="let mensaje of mensajes" class="msg p-2"
                     [ngClass]="(userLoggued.email == mensaje.emisor) ? 'send' : 'received'">
-                        {{mensaje.texto}}
+                    {{mensaje.texto}}
+                    <span>{{mensaje.emisor}} - {{mensaje.fecha}}</span>
                     </p>
                 </div>
             </div>
@@ -32,6 +35,7 @@
             </form>
             <!-- FIN DEL DIV DEL INPUT DEL MENSAJE -->
         </div>
+        <br><br>
     </div>
     <!-- FIN DEL CONTENEDOR DEL CHAT -->
 </main>

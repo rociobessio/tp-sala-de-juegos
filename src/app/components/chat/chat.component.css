@@ -5,11 +5,22 @@ main {
     margin: 0;
     padding: 0;
 }
+
+::-webkit-scrollbar{
+  width: 15px;
+}
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
   
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#7044be,#b4acf5);
+  border-radius: 10px;
+}
 /* INICIO DE LOS CONTENEDORES GENERALES DEL COMPONENTE CHAT */
 .container {
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,10 +29,11 @@ main {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #e9e7ed;
+  margin-top: 10px;
 }
 
 .container-chat{
-  width: 150%;
+  width: 90%;
   max-width: 800px; 
   margin-bottom: 20px;
   position: relative;
@@ -29,6 +41,7 @@ main {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #e9e7ed;
+  overflow: auto;
 }
 
 .container-chat hr{
@@ -60,7 +73,7 @@ main {
 .send{
   display: block;
   float: right;
-  background-color: #b4acf5;
+  background-color: #9082fa;
   min-width: 50.01%;
   border-radius: 10px 10px 0px;
   text-align: left;
@@ -69,11 +82,29 @@ main {
 .received{
   display: block;
   float: left;
-  background-color: #9082fa;
+  background-color: #b4acf5;
   min-width: 50.01%;
   border-radius: 0px 10px 10px;
   text-align: left;
 }
+/* FIN DE ESTADOS DE LOS MENSAJES */
+
+/* INICIO DE LA MODIFICACION DE VISUALIZACION DE MESAJES */
+
+.content-message p{
+  display: flex;
+  flex-direction: column;
+}
+
+.content-message p>span{
+  display: block;
+  float: right;
+  font-size: x-small;
+  margin-top: 0.3rem;
+  margin-right: 0.6rem;
+  text-align: right;
+}
+/* FIN DE LA MODIFICACION DE VISUALIZACION DE MESAJES */
 
 /* INICIO DEL HEADER DEL CHAT */
 .chat-header h2{

@@ -4,6 +4,8 @@ import { UserService } from '../../services/auth.user.service';
 import { message } from '../../interfaces/message.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -13,21 +15,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './chat.component.css'
 })
 export class ChatComponent implements OnInit{
-  constructor(private chatService : ChatServiceService,private userService: UserService) {} 
+  constructor(private chatService : ChatServiceService,private userService: UserService,
+    private router: Router
+  ) {} 
   
   userLoggued: any;//-->Cualquier tipo es para la validacion de usuario
   public newMessage: message = { emisor: '', fecha: '', texto: '',};
-  public mensajes: message[] = [{
-    emisor:'sudo.user@gmail.com',
-    fecha:'10:35 AM',
-    texto:"Hola soy Juan"
-  },
-  {
-    emisor:'pablito@gmail.com',
-    fecha:'10:31 AM',
-    texto:"Hola Juan, soy Pablito"
-  },
-];
+  public mensajes: message[] = [];
   public sub!: any;
 
   /**
@@ -39,8 +33,23 @@ export class ChatComponent implements OnInit{
       if (user) {
         console.log('Logged in user:', user);
         this.userLoggued = user;//-->Asigno
-      } else {
+
+        //-->Para obtener los mensajes
+        this.chatService.getMessages(this.mensajes);
+
+        console.log('Mensajes',this.mensajes);
+        
+      } else {//-->Quiere decir que no esta logueado
         console.log('No user logged in');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Si no estas logueado no podes entrar al chat!',
+          footer: 'Logueate!',
+          timer: 2500
+        });
+        //-->Esto despued lo vemos bien
+        this.router.navigate(['/login']);
       }
     });
   }
@@ -48,16 +57,18 @@ export class ChatComponent implements OnInit{
   /**
    * Permitira enviar los 
    * mensajes de los usuarios 
-   * y guardarlos
+   * y guardarlos en firebase
    */
   async sendMessage(){
-    console.log(this.newMessage);
+    // console.log(this.newMessage);
 
-    let message = {
+    let message = {//-->Lo creo
       emisor: this.userLoggued.email,
       texto: this.newMessage.texto,
       fecha: new Date().toTimeString() + " - " + new Date().toDateString()
     };
+    console.log(message);
+    
     try {
       await this.chatService.addChat(message).then((chat) => {
         this.newMessage.texto = '';
@@ -77,18 +88,17 @@ export class ChatComponent implements OnInit{
    * el ultimo msj
    */
   scrollToTheLastElementByClassName() {
-
     let element = document.getElementsByClassName('msg');
     if (element.length > 0) {
-
       let lastElement: any = element[element.length - 1];
       let toppos = lastElement.offsetTop;
-
+  
       const contMsg = document.getElementById('content-message');
-      console.log(contMsg!.scrollTop);
-
-      contMsg!.scrollTop = toppos;
+      if (contMsg !== null) {
+        contMsg.scrollTop = toppos;
+      }
     }
   }
+  
 }
 
