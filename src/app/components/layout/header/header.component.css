@@ -69,6 +69,7 @@ header{
 }
 /* FIN DE ICONO DE MENU */
 
+
 /* INICIO DE AJUSTES PARA QUE SEA RESPONSIVE */
 @media screen and (max-width:300px){
     .navbar{

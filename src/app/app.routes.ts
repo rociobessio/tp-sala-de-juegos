@@ -1,6 +1,7 @@
 import { Routes,RouterModule,Route } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+//-->Los componentes de la pagina
 import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -61,7 +62,12 @@ export const routes: Routes = [
             import('./components/about-me/about-me.component')
         .then((a) => a.AboutMeComponent)
     },
-    {path:'**', component:PageNotFoundComponent}
+    {
+        path:'**', 
+        loadComponent: () =>
+        import('./components/page-not-found/page-not-found.component')
+        .then((e) => e.PageNotFoundComponent)
+    }
 ];
  
 @NgModule({
