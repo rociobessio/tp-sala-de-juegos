@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class MayorOMenorComponent implements OnInit{
   public cards = HigherOrLower.getCards();
 
-  @Output()
+  // @Output()
   public cardActual:string = '';
   public cardAnterior: string = '';
   //-->Es la primer card al iniciar partida
@@ -56,6 +56,7 @@ export class MayorOMenorComponent implements OnInit{
     // console.log(this.selec);
     console.log('Index anterior: ', indexAnterior);
     console.log('Index nueva: ', indexNueva);
+    //-->En la posicion 21 esta el caracter o numero a comparar
     console.log('Check number/caracter: ',this.cards[indexAnterior][21]);
     
     if (indexAnterior >= 0 && indexAnterior < this.cards.length && 
@@ -75,7 +76,7 @@ export class MayorOMenorComponent implements OnInit{
       })
       .then(() =>{
         this.points = 0;//-->Se reinician los points
-        this.newCard();
+        this.newCard();//-->Genero una nueva card
         this.cardAnterior = '';
       });
     }
