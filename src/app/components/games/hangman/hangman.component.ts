@@ -16,7 +16,7 @@ export class HangmanComponent implements OnInit{
 
   public wordsHangman: string[] = Hangman.getWords();//-->Obtengo las palabras disponibles
   public lettersKeyboard: string[] = Hangman.getLettersKeyboard();//-->Obtengo las letras
-  public letterClicked: {[letter:string]:boolean} = {};
+  public letterClicked: {[letter:string]:boolean} = {};//-->Array de letras para chequear cuales presiona y true/false para saberlo
 
   public hiddenWord:string = "";
   public wordToGuess:string = this.wordsHangman[Math.floor(Math.random() * this.wordsHangman.length)];//-->Obtengo una random
@@ -42,19 +42,19 @@ export class HangmanComponent implements OnInit{
    * @param letter letra presionada
    */
   checkLetter(letter:string){
-    if(!this.letterClicked[letter]){//-->Si no se ha clickeado la letra correcta
+    if(!this.letterClicked[letter]){//-->Si no se ha clickeado la letra dos veces
       this.searchLetter(letter);//--->Sumo a los intentos realizados
       
       const letterHidden = this.hiddenWord.split(" ");
-      for(let i = 0; i<= this.wordToGuess.length;i++){
+      for(let i = 0; i<= this.wordToGuess.length;i++){//-->La busco en la palabra a adivinar
         if(this.wordToGuess[i] == letter)
           letterHidden[i] = letter;
       }
       
       this.hiddenWord = letterHidden.join(" ");
-      this.letterClicked[letter] = true;
+      this.letterClicked[letter] = true;//-->Ya la cliqueo
 
-      //-->Verifico si gano o no
+      //-->Verifico si gano o no con los intentos
       this.winnerOrLoser();
     }
   }
@@ -66,7 +66,7 @@ export class HangmanComponent implements OnInit{
    * vuelvo a cargar la pag.
    */
   restartGame(){
-    window.location.reload();
+    window.location.reload();//-->Recargo la pagina par reiniciar el juego
   }
 
   /**

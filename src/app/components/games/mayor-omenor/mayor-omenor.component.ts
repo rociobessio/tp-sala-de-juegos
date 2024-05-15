@@ -12,19 +12,18 @@ import Swal from 'sweetalert2';
 })
 
 export class MayorOMenorComponent implements OnInit{
-  public cards = HigherOrLower.getCards();
+  public cards = HigherOrLower.getCards();//-->Obtengo las cards
 
-  // @Output()
-  public cardActual:string = '';
-  public cardAnterior: string = '';
+  public cardActual:string = '';//-->La carta actual que jugare
+  public cardAnterior: string = '';//-->La card anterior jugada
   //-->Es la primer card al iniciar partida
   public cardComienzo: string = 'assets/higherOrLower/card-comienzo.png';
 
-  public selec:boolean = false;
+  public selec:boolean = false;//-->Si es higher es true si es false lower
   public points: number = 0;//-->Donde se acumularan los numeros para los rankings de usuarios
 
   constructor() {
-    console.log('Array de las cards: ', this.cards);
+    console.log('Array de las cards: ', this.cards);//-->Imprimo  para ver que llegan
   }  
 
   /**
@@ -33,7 +32,7 @@ export class MayorOMenorComponent implements OnInit{
    * a seleccionar
    */
   ngOnInit(): void {
-    this.newCard();
+    this.newCard();//-->Escojo nueva card
   }
 
   /**
@@ -47,12 +46,12 @@ export class MayorOMenorComponent implements OnInit{
    */
   higherOrLower(option: boolean){
     this.selec = option;//-->La opcion
-    this.cardAnterior = this.cardActual;
-    let indexAnterior = this.cards.indexOf(this.cardAnterior);
+    this.cardAnterior = this.cardActual;//-->La card anterior pasa a ser la actual
+    let indexAnterior = this.cards.indexOf(this.cardAnterior);//-->El index de la card anterior
 
-    this.newCard();
+    this.newCard();//-->Nueva carta actual
     
-    let indexNueva = this.cards.indexOf(this.cardActual);
+    let indexNueva = this.cards.indexOf(this.cardActual);//-->Index de la card actual
     // console.log(this.selec);
     console.log('Index anterior: ', indexAnterior);
     console.log('Index nueva: ', indexNueva);
@@ -60,14 +59,17 @@ export class MayorOMenorComponent implements OnInit{
     console.log('Check number/caracter: ',this.cards[indexAnterior][21]);
     
     if (indexAnterior >= 0 && indexAnterior < this.cards.length && 
+      //-->si higher(true) 6>3 suma puntos
       (this.selec && indexNueva > indexAnterior ||
+      //-->si lower(false) 6<3 suma puntos
       !this.selec && indexNueva < indexAnterior) || 
+      //-->Si empatan
       this.cards[indexAnterior][21] === this.cards[indexNueva][21])
     {
       console.log(this.points);
       this.points++;//-->Se incrementan los puntos
     }
-    else{
+    else{//-->Si no cumple pierde
       Swal.fire({
         title: 'Perdiste, sigue intentando!',
         icon: 'error',
