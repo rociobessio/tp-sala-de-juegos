@@ -1,0 +1,119 @@
+main {
+    font-family: monospace;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* INICIO DE MODIFICACION DE CONTENEDORES  */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#4b357a,#7044be,#4b357a);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #e9e7ed;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container-higher-or-lower{
+    width: 90%;
+    max-width: 2000px; 
+    margin-bottom: 20px;
+    position: relative;
+    background: linear-gradient(#1c0829,#7044be,#1c0829);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #e9e7ed;
+    overflow: auto;
+}
+
+.container-cards{
+  justify-content: center;
+}
+/* FIN DE MODIFICACION DE CONTENEDORES  */
+
+
+/* INICIO DE MODIFICACION DEL HEADER DEL HANG-MAN */
+.higher-or-lower-header hr{
+    box-shadow: 0 0 10px #e9e7ed;
+}
+
+.higher-or-lower-header h1{
+  text-align: center; 
+  display: block;
+  font-size: calc(1.5rem + 2vw);
+  margin-bottom: 10px;
+  font-family: 'Karmatic Arcade';
+  color: #b4acf5;
+  margin: 20px auto; 
+  /* Para la animacion y que ademas esta sea todo el tiempo*/ 
+  animation: bounce 2s ease-in-out infinite; 
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-20px); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(-20px); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+} 
+/* FIN DE MODIFICACION DEL HEADER DEL HANG-MAN */
+
+/* INICIO MODIFICACION DE LAS CARDS */
+.card-comienzo{
+  width: 70%;
+  height: 70%;
+}
+
+.card-actual,
+.card-anterior{
+  width: 70%;
+  height: 70%;
+}
+.card-anterior{
+  opacity: 30%;
+}
+/* FIN MODIFICACION DE LAS CARDS */
+
+/* INICIO DE LOS BOTONES HIGHER OR LOWER */
+.btn-group button{
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(#4b357a,#7044be,#4b357a);
+  border: 2px solid #b4acf5;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.btn-group button::before{
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#4b357a,#7044be,#4b357a);
+  z-index: -1;
+  transition: .5s;
+}
+
+.btn-group button:hover::before{
+  top: 0;
+}
+/* FIN DE LOS BOTONES HIGHER OR LOWER */
+

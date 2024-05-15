@@ -1,0 +1,54 @@
+<main>
+    <div class="container">
+        <!-- INICIO DEL CONTENEDOR DE HIGHER OR LOWER -->
+        <div class="container-higher-or-lower">
+            <!-- INICIO DEL HEADER DEL DEL HIGHER OR LOWER -->
+            <div class="higher-or-lower-header">
+                <h1>HIGHER OR LOWER</h1>
+                <hr>
+            </div>
+            <!-- FIN DEL HEADER DEL DEL HIGHER OR LOWER -->
+
+            <!-- INICIO DEL CONTENEDOR DE CARTAS -->
+            <div class="row container-cards">
+                <!-- INICIO DEL DIV DE CARTA ANTERIOR -->
+                <div class="col-4">
+                    <h3>CARTA ANTERIOR</h3>
+                    <!-- IMG DE LA CARTA -->
+                    <img class="card-anterior" src="{{cardAnterior}}" alt="card-anterior"
+                    *ngIf="cardAnterior != ''">
+                    <!-- IMG EN CASO DE QUE RECIEN SE EMPIECE -->
+                    <img class="card-comienzo" src="{{cardComienzo}}" alt="card-comienzo"
+                    *ngIf="cardAnterior == ''">
+                </div>
+                <!-- FIN DEL DIV DE CARTA ANTERIOR -->
+
+                <!-- INICIO DEL DIV DE CARTA ACTUAL -->
+                <div class="col-4">
+                    <h3>CARTA ACTUAL</h3>
+                    <img class="card-actual" src="{{cardActual}}" alt="card-actual">
+                </div>
+                <!-- FIN DEL DIV DE CARTA ACTUAL -->
+            </div>
+            <!-- FIN DEL CONTENEDOR DE CARTAS -->
+
+            <!-- INICIO DEL CONTADOR DE PUNTOS -->
+            <div class="container-point">
+                <h3>POINTS: {{points}}</h3>
+            </div>
+            <!-- FIN DEL CONTADOR DE PUNTOS -->
+
+            <!-- INICIO DE LOS BOTONES DE HIGHER OR LOWER -->
+            <div class="container-botones row">
+                <hr>
+                <div class="btn-group" role="group">
+                    <button type="button" (click)="higherOrLower(true)">HIGHER</button>
+                    <button type="button" (click)="higherOrLower(false)">LOWER</button>
+                </div>
+            </div>
+            <!-- FIN DE LOS BOTONES DE HIGHER OR LOWER -->
+        </div>
+        <!-- FIN DEL CONTENEDOR DE HIGHER OR LOWER -->
+    </div>
+    <br><br><br>
+</main>
