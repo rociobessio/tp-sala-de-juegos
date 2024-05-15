@@ -19,7 +19,7 @@
                     <p *ngFor="let mensaje of mensajes" class="msg p-2"
                     [ngClass]="(userLoggued.email == mensaje.emisor) ? 'send' : 'received'">
                     {{mensaje.texto}}
-                    <span>{{mensaje.emisor}} - {{mensaje.fecha}}</span>
+                    <span>{{mensaje.emisor}} - {{mensaje.horario}}</span>
                     </p>
                 </div>
             </div>

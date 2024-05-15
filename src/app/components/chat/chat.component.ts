@@ -20,7 +20,7 @@ export class ChatComponent implements OnInit{
   ) {} 
   
   userLoggued: any;//-->Cualquier tipo es para la validacion de usuario
-  public newMessage: message = { emisor: '', fecha: '', texto: '',};
+  public newMessage: message = { emisor: '', fecha: '', horario: '',texto: '',};
   public mensajes: message[] = [];
   public sub!: any;
 
@@ -65,7 +65,8 @@ export class ChatComponent implements OnInit{
     let message = {//-->Lo creo
       emisor: this.userLoggued.email,
       texto: this.newMessage.texto,
-      fecha: new Date().toTimeString()
+      horario: this.chatService.setDate(),//-->Para settear el horario
+      fecha: new Date().toString()
     };
     console.log(message);
     
@@ -100,5 +101,6 @@ export class ChatComponent implements OnInit{
     }
   }
   
+
 }
 
