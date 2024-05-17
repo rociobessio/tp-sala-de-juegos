@@ -22,7 +22,9 @@
             <!-- FIN DE PREGUNTA -->
 
             <!-- INICIO DE IMAGEN DE LA TRIVIA -->
-
+            <div class="container-img">
+                <img src="{{imgQuestion}}" alt="question-img">
+            </div>
             <!-- FIN DE IMAGEN DE LA TRIVIA -->
 
             <hr>
@@ -31,7 +33,7 @@
             <div class="row container-opciones">
                 <h3>Seleccione la respuesta correcta:</h3>
                 <div class="col btn-opcion" *ngFor="let opcion of opcionesPregunta">
-                    <button>{{opcion}}</button>
+                    <button (click)="checkCorrectAnswer(opcion)">{{opcion}}</button>
                 </div>
             </div>
             <!-- FIN OPCIONES -->
@@ -46,4 +48,5 @@
         </div>
         <!-- FIN DEL CONTAINER DEL PREGUNTADOS -->
     </div>
+    <br><br><br>
 </main>

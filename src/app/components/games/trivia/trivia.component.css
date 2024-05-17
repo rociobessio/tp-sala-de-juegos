@@ -100,3 +100,10 @@ main {
   top: 0;
 }
 /* FIN DE LA MODIFICACION DE LOS BOTONES */
+
+/* INICIO  DE LA MODIFICACION DE LA IMAGEN */
+.container-img img{
+  width: 50%;
+  height: 50%;
+}
+/* FIN  DE LA MODIFICACION DE LA IMAGEN */
