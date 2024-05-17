@@ -8,6 +8,41 @@
                 <hr>
             </div>
             <!-- FIN DEL CONTAINER DEL HEADER DEL PREGUNTADOS -->
+
+            <!-- INICIO DE CATEGORIAS -->
+            <div class="container-categorias">
+                <h2 class="titulo-categorias">CATEGORIA: {{categoria}}</h2>
+            </div>
+            <!-- FIN DE CATEGORIAS -->
+
+            <!-- INICIO DE PREGUNTA -->
+            <div class="container-pregunta">
+                <h2 class="pregunta">PREGUNTA: {{pregunta}} </h2>
+            </div>
+            <!-- FIN DE PREGUNTA -->
+
+            <!-- INICIO DE IMAGEN DE LA TRIVIA -->
+
+            <!-- FIN DE IMAGEN DE LA TRIVIA -->
+
+            <hr>
+            
+            <!-- INICIO OPCIONES -->
+            <div class="row container-opciones">
+                <h3>Seleccione la respuesta correcta:</h3>
+                <div class="col btn-opcion" *ngFor="let opcion of opcionesPregunta">
+                    <button>{{opcion}}</button>
+                </div>
+            </div>
+            <!-- FIN OPCIONES -->
+
+            <p>Cantidad Respuestas Correctas: {{contadorRtaCorrectas}}</p>
+
+            <!-- INICIO CONTADOR -->
+            <div class="container-count-down">
+                <p>Count-Down: {{segundosCont}}s</p>
+            </div>
+            <!-- FIN CONTADOR -->
         </div>
         <!-- FIN DEL CONTAINER DEL PREGUNTADOS -->
     </div>
