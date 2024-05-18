@@ -141,7 +141,7 @@ export class TriviaComponent implements OnInit, OnDestroy{
 
     //-->A estas respuestas incorrectas
     this.opcionesPregunta = this.preguntaElegida.results[0].incorrect_answers;
-    // console.log('Incorrect answerts: ', this.opcionesPregunta);
+    console.log('Incorrect answerts: ', this.opcionesPregunta);
     //-->Se le debe de sumar la correcta:
     this.opcionesPregunta.push(this.preguntaElegida.results[0].correct_answer);
     this.preguntaElegida.results[0].correct_answer = this.triviaService.fixText(this.preguntaElegida.results[0].correct_answer);
@@ -152,9 +152,9 @@ export class TriviaComponent implements OnInit, OnDestroy{
     this.opcionesPregunta.sort(() => { return Math.random() - 0.5; });
 
     //--->Se debera de mostrar una imagen
-    let img = this.triviaService.getImageRelated(this.pregunta);
-    img.subscribe((e) =>{
-      console.log(e);
+    this.triviaService
+    .getImageRelated(this.pregunta)
+    .subscribe((e) =>{
       this.imgQuestion = e['photos'][0]['src']['landscape'];
     });
   }
@@ -178,7 +178,7 @@ export class TriviaComponent implements OnInit, OnDestroy{
       if(this.contadorRtaCorrectas == 25){//-->Si llega a 25pts gana
         Swal.fire({
           title: 'Ganaste la partida!',
-          text: 'Haz llegado al maximo de , estas en racha!',
+          text: 'Haz llegado al maximo de respuestas correctas, estas en racha!',
           icon: 'success',
           confirmButtonText:'Ok'
         });

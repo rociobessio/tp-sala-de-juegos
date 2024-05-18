@@ -51,6 +51,12 @@ export const routes: Routes = [
         .then((t) => t.TriviaComponent)
     },
     {
+        path: 'SimonDice',
+        loadComponent: () =>
+            import('./components/games/simon-dice/simon-dice.component')
+        .then((sd) => sd.SimonDiceComponent)
+    },
+    {
         path:'chat', 
         loadComponent: () =>
             import('./components/chat/chat.component')
