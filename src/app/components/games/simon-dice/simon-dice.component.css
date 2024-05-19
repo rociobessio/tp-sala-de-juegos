@@ -23,15 +23,21 @@ main {
 }
 
 .container-simon-dice{
-    width: 90%;
-    max-width: 2000px; 
-    margin-bottom: 20px;
-    position: relative;
-    background: linear-gradient(#1c0829,#7044be,#1c0829);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #e9e7ed;
-    overflow: auto;
+  width: 90%;
+  max-width: 2000px; 
+  margin-bottom: 20px;
+  position: relative;
+  background: linear-gradient(#1c0829,#7044be,#1c0829);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #e9e7ed;
+  overflow: auto;
+}
+
+.container-botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* FIN DE MODIFICACION DE CONTENEDORES  */
@@ -62,3 +68,58 @@ main {
   100% { transform: translateY(0); }
 } 
 /* FIN DE MODIFICACION DEL HEADER */
+
+/* INICIO DEL CONTAINER DE LOS BOTONES DEL SIMON DICE */
+#outer-circle {
+  background: #385a94;
+  border-radius: 50%;
+  height: 500px;
+  width: 500px;
+  position: relative;
+  border-style: solid;
+  border-width: 10px;
+  margin: auto;
+  margin-top: 60px;
+  box-shadow: 8px 8px 15px 5px #888888;
+}
+/* FIN DEL CONTAINER DE LOS BOTONES DEL SIMON DICE */
+
+/* INICIO DEL CIRCULO CENTRAL & SUS CONTENIDOS */
+#inner-circle {
+  position: absolute;
+  background: grey;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border-style: solid;
+  border-width: 10px;
+  top: 50%;
+  left: 50%;
+  margin: -125px 0px 0px -125px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#turn {
+  position: absolute;
+  background: #330000;
+  color: red;
+  font-family: courier;
+  font-size: 20px;
+  height: 30px;
+  width: 50px;
+  margin-left: 90px;
+  margin-top: 100px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+.contador {
+  position: absolute;
+  font-family: 'Original Surfer', cursive;
+  margin-left: 83px;
+  margin-top: 130px;
+}
+/* FIN DEL CIRCULO CENTRAL & SUS CONTENIDOS*/

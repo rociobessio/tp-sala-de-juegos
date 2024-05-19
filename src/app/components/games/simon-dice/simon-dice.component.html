@@ -4,10 +4,42 @@
         <div class="container-simon-dice">
             <!-- INICIO DEL HEADER DEL SIMON DICE -->
             <div class="header-simon-dice">
-                <h1>SIMON DICE</h1>
-                <hr>
-            </div>
+                <h1>Simon Says</h1>
+            </div><hr>
             <!-- FIN DEL HEADER DEL SIMON DICE -->
+
+            <!-- INICIO DE LA FORMA CIRCULAR -->
+            <div id="outer-circle">
+                <!-- INICIO PARA EL VERDE -->
+                <!-- Escucho al evento con el [active] -->
+                <app-boton [active]="colors.green" color="green" (colorGuess)="playerGuess($event)"></app-boton>
+                <!-- FIN PARA EL VERDE -->
+
+                <!-- INICIO PARA EL ROJO -->
+                <!-- Escucho al evento con el [active] -->
+                <app-boton [active]="colors.red" color="red" (colorGuess)="playerGuess($event)"></app-boton>
+                <!-- FIN PARA EL ROJO -->
+
+                <!-- INICIO PARA EL AMARILLO -->
+                <!-- Escucho al evento con el [active] -->
+                <app-boton [active]="colors.yellow" color="yellow" (colorGuess)="playerGuess($event)"></app-boton>
+                <!-- FIN PARA EL AMARILLO -->
+
+                <!-- INICIO PARA EL AZUL -->
+                <!-- Escucho al evento con el [active] -->
+                <app-boton [active]="colors.blue" color="blue" (colorGuess)="playerGuess($event)"></app-boton>
+                <!-- FIN PARA EL AZUL -->
+                
+                <!-- INICIO DEL CIRCULO CENTRAL DEL CONTADOR -->
+                <div id="inner-circle">
+                    <div id="turn">{{contador}}</div>
+                    <div class="contador">
+                      COUNT
+                    </div>
+                </div>
+                <!-- FIN DEL CIRCULO CENTRAL DEL CONTADOR -->
+            </div>
+            <!-- FIN DE LA FORMA CIRCULAR -->
         </div>
         <!-- FIN DEL CONTAINER DEL SIMON DICE -->
     </div>
