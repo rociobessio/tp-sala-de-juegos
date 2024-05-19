@@ -39,7 +39,6 @@ main {
   justify-content: center;
   align-items: center;
 }
-
 /* FIN DE MODIFICACION DE CONTENEDORES  */
 
 /* INICIO DE MODIFICACION DEL HEADER */
@@ -118,8 +117,8 @@ main {
 
 .contador {
   position: absolute;
-  font-family: 'Original Surfer', cursive;
-  margin-left: 83px;
+  font-family: monospace;
+  margin-left: 94px;
   margin-top: 130px;
 }
 /* FIN DEL CIRCULO CENTRAL & SUS CONTENIDOS*/

@@ -23,4 +23,5 @@ export class BotonComponent {
   onClick(){
     this.colorGuess.emit(this.color);
   }
+
 }
