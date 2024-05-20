@@ -29,13 +29,20 @@
                 <!-- Escucho al evento con el [active] -->
                 <app-boton [active]="colors.blue" color="blue" (colorGuess)="playerGuess($event)"></app-boton>
                 <!-- FIN PARA EL AZUL -->
-                
+
                 <!-- INICIO DEL CIRCULO CENTRAL DEL CONTADOR -->
                 <div id="inner-circle">
+                    <!-- INICIO DEL BOTON START DEL JUEGO -->
+                    <div id="switches">
+                        <button class="button" id="start" (click)="startGame()">Start</button>
+                    </div>
+                    <!-- FIN DEL BOTON START DEL JUEGO -->
+                    <!-- INICIO DEL CONTADOR DEL JUEGO -->
                     <div id="turn">{{contador}}</div>
                     <div class="contador">
                       COUNT
                     </div>
+                    <!-- FIN DEL CONTADOR DEL JUEGO -->
                 </div>
                 <!-- FIN DEL CIRCULO CENTRAL DEL CONTADOR -->
             </div>

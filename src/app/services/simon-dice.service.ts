@@ -10,7 +10,7 @@ export class SimonDiceService {
   simon: string[] = [];//-->El simon dice donde se guardara la secuencia original
   jugador: string[] = [];//-->El array del jugador (tendra que matchear con el simon)
   contador: number;
-  status = new Subject<any>;//-->Para los event emitters!
+  status = new Subject<any>();//-->Para los event emitters!
 
   /**
    * Inicializara el contador
@@ -47,6 +47,9 @@ export class SimonDiceService {
    * @returns retorna el array del simon dice
    */
   generateSimonSays():string[]{
+
+    this.simon = [];
+
     for (let index = 0; index < this.contador; index++) {
       this.addNewSimon();
     }
@@ -86,7 +89,7 @@ export class SimonDiceService {
    * @param color el color seleccionado
    * por el jugador.
    */
-  playerGuess(color: string){
+  playerGuess(color: string):boolean{
     this.jugador.push(color);
     if(!this.compareSimonWithPlayer()){
       Swal.fire({
@@ -99,9 +102,12 @@ export class SimonDiceService {
       .then(() =>{
         this.jugador = [];
         this.restartSimon();//-->Reinicio el simon
+        this.setStates();
       });
+      return false;
     }
     this.setStates();
+    return true;
   }
 
   /**
@@ -179,5 +185,4 @@ export class SimonDiceService {
     const audio = new Audio(soundFile);
     audio.play();
   }
-  
 }

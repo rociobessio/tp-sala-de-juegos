@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SimonDiceService } from '../../../services/simon-dice.service';
 import { sleep } from '../../../models/simonDice';
 import { BotonComponent } from './boton/boton.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-simon-dice',
@@ -19,6 +20,9 @@ export class SimonDiceComponent implements OnInit,OnDestroy {
     green: false,
     yellow: false
   };
+
+  gameStarted: boolean = false;//-->Para manejar si ha comenzado la partida
+  private statusSubscription!: Subscription;//-->Para controlar la suscripcion
   
   /**
    * En el constructor llamare al servicio
@@ -31,11 +35,18 @@ export class SimonDiceComponent implements OnInit,OnDestroy {
    * partida del simon dice.
    */
   ngOnDestroy(): void {
-    this.simonService.endSimon();
+    this.gameStarted = false;//-->Pasa a false
+    this.simonService.endSimon();//-->Termino el juego
+    if (this.statusSubscription) {//-->Si esta suscripto lo desuscribo
+      this.statusSubscription.unsubscribe();
+    }
+  }
+
+  ngOnInit(): void {
   }
 
   /**
-   * En el OnInit me suscribo al observable de mi
+   * En el startGame() me suscribo al observable de mi
    * servicio del juego, el status. 
    * Me fijare si el contador del component y el 
    * del status son distintos. Si lo son ire mostrando
@@ -44,19 +55,25 @@ export class SimonDiceComponent implements OnInit,OnDestroy {
    * Sumare al contador y tambien llamare a mi servicio
    * para generar el simon dice. 
    */
-  ngOnInit(): void {
-    // console.log('Secuencia simon: ',this.simonService.generateSimonSays());
-    this.simonService.status.subscribe( status =>{
-      console.log('Status: ',status);
+  public startGame(){
+    //-->Me fijo que este suscripto
+    if (this.statusSubscription) {
+      this.statusSubscription.unsubscribe();
+    }
+    //-->Juego iniciado cambio la flag
+    this.gameStarted = true;
 
-      if(this.contador != status.contador){//-->Solo cuando el contador cambie
-        this.showColorToPlayer(status.simon);
+    //-->Suscribo para controlar el mostrar los colores
+    this.statusSubscription = this.simonService.status.subscribe(status => {
+      console.log('Status: ', status);
+      
+      if (this.contador !== status.contador) {//--> Solo cuando el contador cambie
+        console.log('Partida empezada: ', this.gameStarted);
+        this.showColorToPlayer(status.simon);//--> Mostrare los colores
       }
-
-      this.contador = status.contador;//-->Sumo al contador
+      this.contador = status.contador;//--> Sumo al contador
     });
-
-    this.simonService.generateSimonSays();//-->Voy a generar el simonDice
+    this.simonService.generateSimonSays(); //--> Genero Simon dice
   }
 
   /**
@@ -69,8 +86,22 @@ export class SimonDiceComponent implements OnInit,OnDestroy {
    * el color
    */
   playerGuess(e: string){
-    console.log('Player guess: ',e);
-    this.simonService.playerGuess(e);
+    if (this.gameStarted) {//-->Si el juego esta activo
+      console.log('Player guess: ', e);
+      //-->Traigo si la guess fue correcta
+      const isCorrect = this.simonService.playerGuess(e);
+
+      if (!isCorrect) {//-->Si es incorrecta
+        this.gameStarted = false;//--> Detengo el juego si es incorrecta
+        this.simonService.endSimon(); //--> Termino la partida del Simon dice
+        this.contador = 0;//-->Setteo el contador a 0
+        //-->Si estaba suscripto lo desuscribo
+        if (this.statusSubscription) {
+          this.statusSubscription.unsubscribe();
+          console.log('perdio la partida, reinicio');
+        }
+      }
+    }
   }
 
   /**
@@ -85,13 +116,15 @@ export class SimonDiceComponent implements OnInit,OnDestroy {
    * guardada.
    */
   async showColorToPlayer(simon: string[]){
-    for (let index = 0; index < simon.length; index++) {
-      await sleep(300);
-      this.colors[simon[index]] = true;
-      this.simonService.playSound(simon[index]);//-->Dependiendo el color se reproduce un sonido
-      await sleep(500);
-      this.colors[simon[index]] = false;
-      await sleep(200);
-    }
+    // if(this.gameStarted){
+      for (let index = 0; index < simon.length; index++) {
+        await sleep(300);
+        this.colors[simon[index]] = true;
+        this.simonService.playSound(simon[index]);//-->Dependiendo el color se reproduce un sonido
+        await sleep(500);
+        this.colors[simon[index]] = false;
+        await sleep(200);
+      }
+    // }
   }  
 }

@@ -109,7 +109,7 @@ main {
   height: 30px;
   width: 50px;
   margin-left: 90px;
-  margin-top: 100px;
+  margin-top: 150px;
   text-align: center;
   vertical-align: middle;
   line-height: 30px;
@@ -119,6 +119,25 @@ main {
   position: absolute;
   font-family: monospace;
   margin-left: 94px;
-  margin-top: 130px;
+  margin-top: 180px;
 }
+
+
+#switches {
+  position: absolute;
+  font-family: monospace;
+  margin-left: 68px;
+  margin-top: 70px;
+}
+
+#switches .button {
+  border-radius: 50% !important;
+  font-size: 1.5em;
+  background: linear-gradient(#4b357a,#7044be,#4b357a);
+  border: 2px solid #b4acf5;
+  width: 100px;
+  height: 50px;
+  color: white;
+}
+
 /* FIN DEL CIRCULO CENTRAL & SUS CONTENIDOS*/
