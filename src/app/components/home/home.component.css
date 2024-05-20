@@ -21,6 +21,7 @@ main {
   width: 150%;
   max-width: 800px; 
   margin-bottom: 20px;
+  height: 80%;
   position: relative;
   background: linear-gradient(#4b357a,#7044be,#4b357a);
   padding: 20px;
@@ -86,66 +87,44 @@ p {
 
 /* INICIO DE BOTONES PARA SELECCIONAR JUEGO */
 .botones {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Los botones pasarán a la siguiente línea si no hay espacio */
-    flex-wrap: wrap;
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
 }
 
-.btn-botones {
- /* Ajustar el margen superior para separar los botones de la información */
-    margin-top: 20px;
-} 
-
-.botones button{ 
-    position: relative;
-    width: 190px;
-    height: 45px;
-    background: linear-gradient(#4b357a,#7044be,#4b357a);
-    border: 2px solid #b4acf5;
-    outline: none;
-    border-radius: 40px;
-    cursor: pointer;
-    color: white;
-    font-weight: 600;
-    z-index: 1;
-    overflow: hidden;
-    margin-bottom: 15px;
-    background-color: #333;
-    box-shadow: 0 0 10px #e9e7ed;  
-    border: none;
-    outline: none;
-
-    /* Separo los botones y tambien de arriba */
-    margin-right: 20px;
-    margin-top: 30px;
-}
-.botones button:last-child {
-    margin-right: 0;
-}
-.botones::before{
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(#4b357a,#7044be,#4b357a);
-    z-index: -1;
-    transition: .5s;
+.botones button {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(#4b357a, #7044be, #4b357a);
+  border: 2px solid #b4acf5;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: 15px; 
+  margin-right: 10px;
 }
 
-.botones:hover::before{
-    top: 0;
+.botones button::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#4b357a, #7044be, #4b357a);
+  z-index: -1;
+  transition: 0.5s;
 }
 
-/* Cambio el tipo de cursor */
-button:hover{
-  cursor: url('/src/assets/cursors/Link-Amethyst.cur');
+.botones button:hover::before {
+  top: 0;
 }
-
 /* FIN DE BOTONES PARA SELECCIONAR JUEGO */
 
 /* INICIO PARA LAS FLECHAS */

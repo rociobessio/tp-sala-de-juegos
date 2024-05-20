@@ -5,7 +5,7 @@
         "header"
         "content"
         "footer";
-    grid-template-rows: auto 1fr auto; /* Ajusta las filas para que el header y el footer tengan su altura natural */
+    grid-template-rows: auto 1fr auto;
     /* grid-template-columns: var(--sidebar-width) 1fr; */
     /* transition: grid-template-columns 0.5s; */
 }
