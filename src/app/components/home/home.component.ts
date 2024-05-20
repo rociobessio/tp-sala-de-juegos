@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/auth.user.service';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +13,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
-  // usuario: string|null = this.getUserLogged();
   userEmail: string | null = null;
   mostrarWelcome = true;
 
-  constructor(private userService : UserService) {}
+  constructor(private userService : UserService,private router : Router) {}
 
   /**
    * En el onInit 
@@ -30,11 +31,24 @@ export class HomeComponent implements OnInit{
         console.log('Logged in user email:', user.email);
         this.userEmail = user.email;
       } else {
-        this.userEmail = null;
+        console.log('No user logged in');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Si no estas logueado no podes jugar!',
+          footer: 'Logueate!',
+          timer: 2500
+        });
+        this.router.navigate(['/login']);
       }
     });
   }
 
+  /**
+   * Metodo para saber si mostrar
+   * o no el welcome o la info del
+   * usuario logueado.
+   */
   toggleWelcomeAndUserInfo() {
     this.mostrarWelcome = !this.mostrarWelcome;
   }
@@ -56,9 +70,6 @@ export class HomeComponent implements OnInit{
       }
     });
     return null;
-
-    // const user = this.userService.getUserLogged();
-    // return user ? user.email : null;
   }
   
 }
