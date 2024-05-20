@@ -156,6 +156,7 @@ export class TriviaComponent implements OnInit, OnDestroy{
     .getImageRelated(this.pregunta)
     .subscribe((e) =>{
       this.imgQuestion = e['photos'][0]['src']['landscape'];
+      // this.imgQuestion = e.data[0].url; 
     });
   }
 

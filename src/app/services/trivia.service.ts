@@ -10,6 +10,9 @@ export class TriviaService {
 
   constructor(private httpClient: HttpClient) { }
 
+  private readonly AUTHORIZATION_KEY_IMG = 'zGrDxXymW8heMqxlt8EfoEurQtuyTVJV9zSaVzUsSuoewNQu0f2zpF0Q';
+  private readonly API_URL_QUESTION = 'https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple';
+
   /**
    * Me permitira obtener una pregunta de una API
    * y retornarla para el juego de preguntados.
@@ -17,16 +20,16 @@ export class TriviaService {
    * con los atributos de la API
    */
   getQuestion(): Observable<Trivia>{
-    return this.httpClient.get('https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple') as Observable<Trivia>;
+    return this.httpClient.get(this.API_URL_QUESTION) as Observable<Trivia>;
   }
 
   getImageRelated(q: string) : Observable<any>{
     const header = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'xp1YW6hTOQkK8MqDbuuuANAbZTOlEENnKiUFlksLx7Px5if4wdBZO62V'
+      'Authorization': this.AUTHORIZATION_KEY_IMG
     });
     const requestOptions = { headers: header };
-    return this.httpClient.get(`https://api.pexels.com/v1/search?query=${q}&per_page=1`, requestOptions) as Observable<any>;
+    return this.httpClient.get(`https://api.pexels.com/v1/search?query=History${q}&per_page=1`, requestOptions) as Observable<any>;
   }
 
   /**
@@ -37,13 +40,14 @@ export class TriviaService {
    * @returns el texto ya modificado
    */
   fixText(text: string): string{
-    return text.replace(/&#039;/g, "'")
+    return text
+    .replace(/&#039;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&deg;/g, '°')
     .replace(/&gt;/g, '>')
     .replace(/&lt;/g, '<')
     .replace(/&apos;/g, "'")
-    .replace(/&amp;/g, '&')
+    // .replace(/&amp;/g, 'and')
     .replace(/&quot;/g, '"')
     .replace(/&nbsp;/g, ' ')
     .replace(/&rdquo;/g, '"')
@@ -61,6 +65,7 @@ export class TriviaService {
     .replace(/&Iacute;/g, 'Í')
     .replace(/&Oacute;/g, 'Ó')
     .replace(/&Uacute;/g, 'Ú')
+    .replace(/&amp;/g, '&')
     .replace(/&auml;/g, 'ä')
     .replace(/&euml;/g, 'ë')
     .replace(/&iuml;/g, 'ï')
