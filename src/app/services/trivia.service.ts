@@ -11,7 +11,7 @@ export class TriviaService {
   constructor(private httpClient: HttpClient) { }
 
   private readonly AUTHORIZATION_KEY_IMG = 'zGrDxXymW8heMqxlt8EfoEurQtuyTVJV9zSaVzUsSuoewNQu0f2zpF0Q';
-  private readonly API_URL_QUESTION = 'https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple';
+  private readonly API_URL_QUESTION = 'https://opentdb.com/api.php?amount=1&category=22&difficulty=easy&type=multiple';
 
   /**
    * Me permitira obtener una pregunta de una API
@@ -29,7 +29,7 @@ export class TriviaService {
       'Authorization': this.AUTHORIZATION_KEY_IMG
     });
     const requestOptions = { headers: header };
-    return this.httpClient.get(`https://api.pexels.com/v1/search?query=History${q}&per_page=1`, requestOptions) as Observable<any>;
+    return this.httpClient.get(`https://api.pexels.com/v1/search?query=${q}&per_page=1`, requestOptions) as Observable<any>;
   }
 
   /**
