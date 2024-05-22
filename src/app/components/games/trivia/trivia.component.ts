@@ -127,7 +127,7 @@ export class TriviaComponent implements OnInit, OnDestroy{
    */
   next(): void{
     this.estado = true;
-    this.segundosCont = 40;
+    this.segundosCont = 45;
     this.selectQuestion();
   }
 
