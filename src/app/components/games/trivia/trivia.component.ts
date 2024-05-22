@@ -63,7 +63,7 @@ export class TriviaComponent implements OnInit, OnDestroy{
   start(){
     this.estado = true;//-->Iniciamos
     this.contadorRtaCorrectas = 0;
-    this.segundosCont = 40;//-->40 segundos para responder.
+    this.segundosCont = 45;//-->40 segundos para responder.
 
     this.selectQuestion();//-->Voy a seleccionar la pregunta nueva
   }
@@ -104,14 +104,20 @@ export class TriviaComponent implements OnInit, OnDestroy{
   /**
    * Me permitira generar la pregunta
    * y sus atributos a mostrar (opciones,
-   * categoria, etc)
+   * categoria, etc).
+   * Ademas la pregunta a traer de la api
+   * se hara setteando un tiempo para realizar
+   * la request, de esta forma me evito 
+   * errores en la request.
    */
-  selectQuestion(){
-    this.triviaService.getQuestion()
-    .subscribe( trivia =>{
-      console.log('Respuesta que llega de la API:', trivia);
-      this.fillDataQuestion(trivia);
-    });
+  selectQuestion(): void {
+    setTimeout(() => {
+      this.triviaService.getQuestion()
+        .subscribe(trivia => {
+          console.log('Respuesta que llega de la API:', trivia);
+          this.fillDataQuestion(trivia);
+        });
+    }, 2500);//-->Le pongo un setTimeOut para evitar error de la request
   }
 
   /***
@@ -145,10 +151,12 @@ export class TriviaComponent implements OnInit, OnDestroy{
     //-->Se le debe de sumar la correcta:
     this.opcionesPregunta.push(this.preguntaElegida.results[0].correct_answer);
     this.preguntaElegida.results[0].correct_answer = this.triviaService.fixText(this.preguntaElegida.results[0].correct_answer);
+    
+    //-->Recorro el array de las opciones y me fijo si hay error en el formato del texto para cambiarlo
     for (let index = 0; index < this.opcionesPregunta.length; index++) {
       this.opcionesPregunta[index] = this.triviaService.fixText(this.opcionesPregunta[index]);
     }
-    //--->Sort de las pregunstas
+    //--->Sort de las respuestass
     this.opcionesPregunta.sort(() => { return Math.random() - 0.5; });
 
     //--->Se debera de mostrar una imagen
@@ -165,7 +173,7 @@ export class TriviaComponent implements OnInit, OnDestroy{
    * se vera si es correcta. Una vez que
    * el usuario llegue a los 25 puntos gana
    * y se reinicia la partida.
-   * Mientras no gane se le seguira generando 0
+   * Mientras no gane se le seguira generando
    * mas preguntas traidas de la API
    * @param option la respuesta
    * elegida por el usuario
@@ -182,7 +190,8 @@ export class TriviaComponent implements OnInit, OnDestroy{
           text: 'Haz llegado al maximo de respuestas correctas, estas en racha!',
           icon: 'success',
           confirmButtonText:'Ok'
-        });
+        })
+        .then(() => this.start());//-->Reinicia partida
       }
       else
         this.next();//-->Si todavia no llega, sigo generando preguntas
